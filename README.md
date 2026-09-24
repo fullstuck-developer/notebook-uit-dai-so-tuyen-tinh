@@ -13,6 +13,9 @@ NoiDungHoc/
     ├── buoi2/buoi2.tex
     ├── buoi3/buoi3.tex
     └── ...
+NoiDungThi/
+├── CauTrucDe/CauTrucDe.tex
+└── Phao/Phao.tex
 ```
 
 ## ⚙️ Yêu cầu hệ thống

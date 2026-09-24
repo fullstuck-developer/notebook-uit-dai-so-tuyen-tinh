@@ -16,6 +16,9 @@ NoiDungHoc/
     ├── buoi5/Buoi_05.tex
     ├── buoi6/Buoi_06.tex
     └── buoi8/Buoi_08.tex
+NoiDungThi/
+├── CauTrucDe/CauTrucDe.tex
+└── Phao/Phao.tex
 ```
 
 Mỗi buổi là một file `.tex` độc lập, tự build riêng.
