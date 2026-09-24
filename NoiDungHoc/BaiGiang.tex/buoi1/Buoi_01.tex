@@ -1,0 +1,491 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[margin=1in]{geometry}
+\usepackage{ulem}
+\let\ul\uline
+
+\begin{document}
+\ul{Buổi 01 -- Ngày 19-07-2026 -- môn Đại số tuyến tính -- lớp
+MA003.F32.LT.CNTT}
+
+\emph{\textbf{\ul{Các cột điểm}:}}
+
++ Quá trình: \textbf{20\%},
+
++ Giữa kỳ: \textbf{20\%}, làm bài kiểm tra, nộp trên Elearning, hình
+thức: tự luận, có thể sử dụng tài liệu khi làm bài.
+
++ Cuối kỳ: \textbf{60\%}, thi tập trung, thời gian làm bài \textbf{90}
+phút, hình thức: tự luận, được sử dụng tài liệu GIẤY khi làm bài.
+
+\emph{\textbf{\ul{Tài liệu tham khảo}}}:
+
+1/ Giáo trình Toán Cao cấp A3.
+
+Tác giả: Đỗ Văn Nhơn.
+
+NXB: ĐHQG-HCM.
+
+2/ Đại số tuyến tính
+
+Tác giả: Nguyễn Ngọc Thanh -- Trịnh Thanh Đèo - \ldots{}
+
+NXB: ĐHQG-HCM.
+
+3/ Giáo trình Đại số tuyến tính (Toán 2)
+
+Tác giả: Đỗ Công Khanh -- Nguyễn Minh Hằng -- Ngô Thu Lương.
+
+NXB: ĐHQG-HCM.
+
+4/ Giáo trình Đại số tuyến tính
+
+Tác giả: Cao Thanh Tình -- Hà Mạnh Linh -- Lê Hoàng Tuấn -- Lê Huỳnh Mỹ
+Vân.
+
+NXB: ĐHQG-HCM.
+
+* \emph{\textbf{\ul{Phần mềm hỗ trợ}}}:
+
++ MATLAB;
+
++ MAPLE;
+
++ Microsoft Excel;
+
++ R;\ldots{}
+
+* \emph{\textbf{\ul{Bài học}}}:
+
+\textbf{CHƯƠNG 1: MA TRẬN -- HỆ PHƯƠNG TRÌNH TUYẾN TÍNH}
+
+\textbf{1/ \ul{MỘT SỐ KHÁI NIỆM}:}
+
+\emph{\textbf{Ma trận (Matrix -- Matrice)}}:
+
+Gọi $F$= trường số hữu tỷ
+$\mathbb{Q}$, trường số thực
+$\mathbb{R}$, hay là trường số phức
+$\mathbb{C}$.
+
+Fields
+
+Một ma trận có kích thước $m \times n$ trên
+\emph{F} là một bảng số (chữ nhật) có $m$
+dòng và $n$ cột, như sau:
+
+$$A = \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1n} \\ a_{21} & a_{22} & \dots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mn} \end{pmatrix}$$,
+
+Ta viết gọn là $A = (a_{ij})_{m \times n}$, với
+$a_{ij}$ là phần tử ở dòng
+$i$ và cột
+$j$ của ma trận
+$A$.
+
+Khi $m=n$ thì ta gọi
+$A$ là ma trận vuông cấp
+$n$, và kí hiệu là:
+
+$A = (a_{ij})_{n}$
+
+Ta ký hiệu:
+
+$M_{m \times n}(F)$ tập hợp tất cả các ma trận có
+$m$ dòng và
+$n$ cột trên \emph{F}.
+
+$M_n(F)$ tập hợp tất cả các ma trận vuông cấp
+$n$ trên \emph{F}.
+
+\emph{\ul{Ví dụ}}: ta có các ma trận sau
+
+$$A = \begin{pmatrix} -2 & 1 & 0 & 4 & -9 \\ 5 & -8 & 2 & -7 & 10 \end{pmatrix} \in M_{2 \times 5}(\mathbb{R})$$
+
+$$B = \begin{pmatrix} 2 & 5 & -6 & 4 & -3 \\ -7/3 & 6 & 5/9 \\ 4 & 0 & -1/3 \end{pmatrix} \in M_{3 \times 5}(\mathbb{R})$$
+
+$$C = \begin{pmatrix} -8+2i & 6-5i & 4i+1 & 2i \end{pmatrix} \in M_{1 \times 4}(\mathbb{C})$$
+
+$$D = \begin{pmatrix} 2 \\ -3 \\ 8 \\ -1 \end{pmatrix} \in M_{4 \times 1}(\mathbb{R})$$
+
+* \emph{\textbf{\ul{Ma trận zero}}}:
+
+Là ma trận có tất cả hệ số đều bằng 0, và ta kí hiệu là
+$0_{m \times n}$ hay là
+$0_n$
+
+\ul{Ví dụ}:
+
+$$O_{2 \times 3} = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$ và
+$$O_3 = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$
+
+* \emph{\textbf{\ul{Ma trận đơn vị (unit matrix -- identity matrix)}}}:
+
+Ma trận đơn vị cấp $$I_n = E_n = \begin{pmatrix} 1 & 0 & \dots & 0 \\ 0 & 1 & \dots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \dots & 1 \end{pmatrix}$$ là ma trận vuông
+cấp $$I_n = E_n = \begin{pmatrix} 1 & 0 & \dots & 0 \\ 0 & 1 & \dots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \dots & 1 \end{pmatrix}$$ có dạng
+
+$$I_3 = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$$ E = Elementary = sơ cấp
+
+\ul{Ví dụ}: $$I_4 = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}$$ và
+$$A = \begin{pmatrix} a_{11} & & & & \\ & a_{22} & & \mathbf{O} & \\ & & \ddots & & \\ & \mathbf{O} & & a_{n-1, n-1} & \\ & & & & a_{nn} \end{pmatrix}$$
+
+* \emph{\textbf{\ul{Ma trận đường chéo (diagonal matrix)}}}:
+
+Là ma trận vuông cấp $a_{11}, a_{22}, \dots, a_{nn}$ có dạng
+
+$$A = \begin{pmatrix} -3 & 0 & 0 & 0 \\ 0 & 2 & 0 & 0 \\ 0 & 0 & -5 & 0 \\ 0 & 0 & 0 & 8 \end{pmatrix}$$
+
+với $$A = \begin{pmatrix} a_{11} & & & & \\ & a_{22} & & \text{tùy ý} & \\ & & \ddots & & \\ & \mathbf{O} & & a_{n-1, n-1} & \\ & & & & a_{nn} \end{pmatrix}$$ tùy ý.
+
+\ul{Ví dụ}: $$A = \begin{pmatrix} -1 & 0 & 8 & -3 \\ 0 & 3 & -2 & 9 \\ 0 & 0 & 7 & 0 \\ 0 & 0 & 0 & -6 \end{pmatrix}$$
+
+* \emph{\textbf{\ul{Ma trận tam giác trên (upper triangular matrix)}}}:
+
+Là ma trận vuông cấp $$A = \begin{pmatrix} a_{11} & & & & \\ & a_{22} & & \mathbf{O} & \\ & & \ddots & & \\ & \text{tùy ý} & & a_{n-1, n-1} & \\ & & & & a_{nn} \end{pmatrix}$$ có dạng
+
+$$A = \begin{pmatrix} 9 & 0 & 0 & 0 \\ 0 & -4 & 0 & 0 \\ -5 & 2 & 6 & 0 \\ 1 & 0 & 3 & -5 \end{pmatrix}$$ tùy ý
+
+\ul{Ví dụ}: $i$
+
+* \emph{\textbf{\ul{Ma trận tam giác dưới (lower triangular matrix)}}}:
+
+Là ma trận vuông cấp $c$ có dạng
+
+$(i) \rightarrow c(i)$
+
+\ul{Ví dụ}: $c \neq 0$
+
+\textbf{2/ \ul{CÁC PHÉP BIẾN ĐỔI SƠ CẤP TRÊN DÒNG ĐỐI VỚI MA TRẬN (ROW
+ELEMENTARY OPERATIONS)}:}
+
+a/ \emph{\textbf{\ul{Loại 1}}}:
+
+Nhân dòng $$A = \begin{pmatrix} 1 & -2 & 5 \\ 0 & 7 & -4 \\ 2 & -3 & 8 \end{pmatrix}$$ cho số
+$$\xrightarrow{(2) \rightarrow 5(2)} A' = \begin{pmatrix} 1 & -2 & 5 \\ 0 & 35 & -20 \\ 2 & -3 & 8 \end{pmatrix}$$
+
+Ta có:
+
+$$A = \begin{pmatrix} -2 & 3 & -4 & 9 & 10 & -3 \\ 8 & 15 & -7 & 20 & 49 & -65 \\ 73 & -27 & 41 & 52 & -39 & 15 \\ 6 & 0 & -7 & 6 & 12 & 7 \end{pmatrix}$$
+
+\ul{Ví dụ 1}: Cho $$\xrightarrow{(3) \rightarrow -5/19(3)} A' = \begin{pmatrix} -2 & 3 & -4 & 9 & 10 & -3 \\ 8 & 15 & -7 & 20 & 49 & -65 \\ -365/19 & 135/19 & -205/19 & -260/19 & 195/19 & -75/19 \\ 6 & 0 & -7 & 6 & 12 & 7 \end{pmatrix}$$
+
+$$B = \begin{pmatrix} -51 & 17 & 98 & 23 \\ -18 & -23 & -71 & 25 \\ 19 & 38 & 13 & -173 \end{pmatrix}$$
+
+\ul{Ví dụ 2}: Cho $$\xrightarrow{(1) \rightarrow 5312(1)} B' = \begin{pmatrix} -270912 & 90304 & 520576 & 122176 \\ -18 & -23 & -71 & 25 \\ 19 & 38 & 13 & -173 \end{pmatrix}$$
+
+$i$
+
+b/ \emph{\textbf{\ul{Loại 2}}}:
+
+Hoán vị (interchange) dòng $j$ với dòng
+$(i) \leftrightarrow (j)$
+
+Ta có: $A \xrightarrow{(i) \leftrightarrow (j)} A'$
+
+\ul{Ví dụ 3}: Cho $$C = \begin{pmatrix} -7 & 2 & 3 & 1 \\ 6 & 0 & -5 & 9 \\ 8 & 10 & -2 & 3 \\ 0 & 8 & 12 & -3 \\ 9 & 6 & 7 & -2 \end{pmatrix}$$
+
+$$\xrightarrow{(2) \leftrightarrow (5)} C' = \begin{pmatrix} -7 & 2 & 3 & 1 \\ 9 & 6 & 7 & -2 \\ 8 & 10 & -2 & 3 \\ 0 & 8 & 12 & -3 \\ 6 & 0 & -5 & 9 \end{pmatrix}$$
+
+c/ \emph{\textbf{\ul{Loại 3}}}:
+
+Thay dòng $i$ bằng {[}dòng
+$(i) \rightarrow (i) + c(j)$dòng
+$j${]}
+
+Ta có:
+
+$$D = \begin{pmatrix} -5 & 2 & 6 & 7 \\ 8 & 15 & 23 & 6 \\ 12 & -38 & 19 & -73 \end{pmatrix}$$
+
+\ul{Ví dụ 4}: Cho $$\xrightarrow{(3) \rightarrow (3) - 8(1)} D' = \begin{pmatrix} -5 & 2 & 6 & 7 \\ 8 & 15 & 23 & 6 \\ 52 & -54 & -29 & -129 \end{pmatrix}$$
+
+$$E = \begin{pmatrix} 21 & 35 & -72 & 61 \\ -13 & -29 & 18 & -38 \\ 11 & 43 & 17 & -25 \end{pmatrix}$$
+
+\ul{Ví dụ 5}: Cho $$\xrightarrow{(2) \rightarrow 43(3) - 17(2)} E' = \begin{pmatrix} 21 & 35 & -72 & 61 \\ 694 & 2342 & 425 & -429 \\ 11 & 43 & 17 & -25 \end{pmatrix}$$
+
+$$F = \begin{pmatrix} -45 & 21 & 15 & -43 \\ 18 & -81 & -26 & 17 \\ 24 & 52 & 15 & 49 \end{pmatrix}$$
+
+\ul{Ví dụ 6}: Cho $$\xrightarrow{(1) \rightarrow 3(2) - 2(3)} F' = \begin{pmatrix} 6 & -347 & -108 & -47 \\ 18 & -81 & -26 & 17 \\ 24 & 52 & 15 & 49 \end{pmatrix}$$
+
+$$\xrightarrow{(2) \rightarrow 15(2) - 8(3)} F'' = \begin{pmatrix} 6 & -347 & -108 & -47 \\ 78 & -1631 & -510 & -137 \\ 24 & 52 & 15 & 49 \end{pmatrix}$$
+
+\ul{Ví dụ 7} (dùng \emph{F} của ví dụ 6)
+
+$$\xrightarrow{(2) \rightarrow 4(1) + 5(3)} A''$$
+
+\emph{\ul{Lưu ý}}: Ta không thể thực hiện được phép gán cho dòng
+(\emph{i}) nếu không sử dụng dòng (\emph{i}) để tính toán.
+
+\ul{Ví dụ}: $A_5$ không làm được.
+
+$$A_5 \xrightarrow{(2) \rightarrow 4(1) + 5(3) - 9(2)} A'''$$ làm được.
+
+\textbf{3/ \ul{HỆ PHƯƠNG TRÌNH TUYẾN TÍNH (LINEAR EQUATIONS)}:}
+
+Một hệ phương trình tuyến tính gồm $m$
+phương trình và $n$ ẩn số, trên
+\emph{F}, là hệ có dạng:
+
+$$\begin{cases} a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n = b_1 \\ a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n = b_2 \\ \dots \\ a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n = b_m \end{cases}$$ (*)
+
+Trong đó:
+
+$a_{ij}, b_i$ là các hệ số cho trước trên
+\emph{F}.
+
+$x_1, x_2, \dots, x_n$ là các ẩn số cần tìm.
+
+Đặt
+
+$A = (a_{ij})_{m \times n}$; $$B = \begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{pmatrix}$$
+và $$X = \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix}$$
+
+Thì hệ pt(*) có thể được viết thành 1 trong 2 dạng:
+
+\begin{itemize}
+\item
+  Dạng tích ma trận: $AX = B$
+\item
+  Dạng ma trận hóa: $(A|B)$ (the augmented
+  matrix)
+\end{itemize}
+
+\ul{Ví dụ}:
+
+Cho hệ pt tuyến tính sau trên $\mathbb{R}$:
+
+$$\begin{cases} 4x_2 - x_4 + 2x_5 = 0 \\ -x_1 + 9x_3 + 3x_6 = 3 \\ x_1 + 7x_2 - 2x_4 - 6x_5 + 3x_6 = 0 \end{cases}$$
+
+Viết hệ pt trên dưới dạng tích ma trận và dạng ma trận hóa.
+
+Ta có dạng tích ma trận của hệ là: $$A = \begin{pmatrix} 0 & 4 & 0 & -1 & 2 & 0 \\ -1 & 0 & 9 & 0 & 0 & 3 \\ 1 & 7 & 0 & -2 & -6 & 3 \end{pmatrix}$$,
+với
+
+$$X = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \end{pmatrix}$$,
+$$B = \begin{pmatrix} 0 \\ 3 \\ 0 \end{pmatrix}$$, $3$
+
+Ta có dạng ma trận hóa của hệ là:
+
+$$(A|B) = \begin{pmatrix} 0 & 4 & 0 & -1 & 2 & 0 & | & 0 \\ -1 & 0 & 9 & 0 & 0 & 3 & | & 3 \\ 1 & 7 & 0 & -2 & -6 & 3 & | & 0 \end{pmatrix}$$
+
+\textbf{4/ \ul{CÁCH GIẢI HỆ PT TUYẾN TÍNH}}\\
+\textbf{\ul{(PHƯƠNG PHÁP GAUSS-JORDAN)}:}
+
+Xét hệ pt tuyến tính gồm $m$ phương
+trình và $n$ ẩn số, trên \emph{F}, viết
+dưới dạng ma trận hóa $(A|B)$.
+
+Ta có thể sử dụng các phép biến đổi sơ cấp trên dòng tùy ý mà không làm
+thay đổi tập hợp nghiệm của hệ.
+
+Cụ thể như sau:
+
+Ta có thể sử dụng tùy ý các phép biến đổi sơ cấp trên dòng để xây dựng
+trong $A$ các cột chuẩn
+
+$$E_1 = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}, E_2 = \begin{pmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix}, E_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix}$$,\ldots{} \ul{theo thứ tự} từ trái
+phải
+
+Quá trình xây dựng các cột chuẩn phải luôn đảm bảo 2 nguyên tắc:
+
++ Khi đang xây dựng cột chuẩn $E_j$ thì ta
+phải giữ được các cột chuẩn $E_1, E_2, \dots, E_{k-1}$ đã có
+trước đó.
+
++ Nếu tại cột đang xét ta không xây dựng được thành
+$E_j$ thì ta phải chuyển sang cột kế cận
+bên tay phải.
+
+* Quá trình chuẩn hóa các cột kết thúc khi ta xét xong cột cuối cùng của
+\emph{A}.
+
+* Có đúng 3 trường hợp sau xảy ra:
+
+\emph{\ul{TH1}}:
+
+Khi đang chuẩn hóa các cột, ta nhận thấy có 1 dòng của hệ xuất hiện dạng
+
+(0 0 0 \ldots{} 0 0 \textbar{} $E_k$), với
+$c \neq 0$
+
+Ta kết luận hệ pt VÔ NGHIỆM
+
+\emph{\ul{TH2}}:
+
+Ta thu được $$(A|B) = \begin{pmatrix} 1 & 0 & \dots & 0 & 0 & | & c_1 \\ 0 & 1 & \dots & 0 & 0 & | & c_2 \\ 0 & 0 & \dots & 0 & 0 & | & c_3 \\ \vdots & \vdots & \ddots & \vdots & \vdots & | & \vdots \\ 0 & 0 & \dots & 1 & 0 & | & c_{n-1} \\ 0 & 0 & \dots & 0 & 1 & | & c_n \\ 0 & 0 & \dots & 0 & 0 & | & 0 \\ \vdots & \vdots & \ddots & \vdots & \vdots & | & \vdots \\ 0 & 0 & \dots & 0 & 0 & | & 0 \end{pmatrix}$$ cột chuẩn liên tiếp
+nhau, có dạng
+
+$n$
+
+$(A|B)$ các dòng zero, có thể có hoặc không
+
+Ta kết luận hệ pt CÓ NGHIỆM DUY NHẤT là:
+
+$$X = \begin{pmatrix} c_1 \\ c_2 \\ \vdots \\ c_n \end{pmatrix}$$
+
+\emph{\ul{TH3}}:
+
+Khi chuẩn hóa xong, ta chỉ thu được $r$
+cột chuẩn (với $r < n$), xen kẽ với
+($n-r$) cột không chuẩn hóa được, ta kết
+luận hệ pt CÓ VÔ SỐ NGHIỆM như sau:
+
++ Các ẩn ứng với các cột không chuẩn hóa được ta gọi là \emph{\textbf{ẩn
+tự do}}, lấy giá trị tùy ý trên \emph{F}.
+
++ Các ẩn còn lại (ứng với các cột chuẩn hóa được) ta gọi là
+\emph{\textbf{ẩn phụ thuộc}}, được tính theo các ẩn tự do, nhờ vào những
+pt \emph{\textbf{không tầm thường}} ở hệ sau cùng.
+
+\ul{Ví dụ}: Khi giải hệ $\xrightarrow{GAUSS-JORDAN}$
+
+Ta thấy hệ sau cùng có cột 4, cột 6 không chuẩn hóa được, nên hệ có VÔ
+SỐ NGHIỆM như sau:
+
+Đặt $x_4 = a; x_6 = b; \forall a,b$.
+
+Ta có
+
+\begin{quote}
+$$\begin{cases} x_1 - 2x_4 + 3x_6 = 5 \\ x_2 + x_4 - x_6 = -3 \\ x_3 - x_4 = 7 \\ x_5 + 2x_6 = 4 \end{cases}$$
+\end{quote}
+
+* \emph{\textbf{\ul{Dấu hiệu nhận biết 1 cột có chuẩn hóa được hay
+không}}}?
+
+Ta muốn chuẩn hóa cột
+
+$$U = \begin{pmatrix} u_1 \\ u_2 \\ \vdots \\ u_{k-1} \\ u_k \\ u_{k+1} \\ \vdots \\ u_m \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ \vdots \\ 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix} = E_k$$ vị trí thứ
+$k$
+
+\emph{\ul{TH1}}: Nếu $u_k = u_{k+1} = \dots = u_m = 0$ thì ta không
+thể chuẩn hóa $U$ thành
+$E_k$
+
+\emph{\ul{TH2}}: Nếu có (ít nhất) một hệ số khác 0, trong các số
+$u_k, u_{k+1}, \dots, u_m$ thì ta có thể chuẩn hóa
+$U$ thành
+$$U = \begin{pmatrix} -3 \\ 2 \\ 5 \\ -4 \\ 0 \\ 0 \\ 0 \end{pmatrix}$$.
+
+\ul{Ví dụ}:
+
+a/ Ta muốn chuẩn hóa cột $$E_6 = \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}$$ thành
+$u_6 = u_7 = u_8 = 0$ được không?
+
+Ta thấy $U$ nên ta không thể chuẩn hóa
+$E_6$ thành
+$U$
+
+b/ Ta muốn chuẩn hóa cột $$V = \begin{pmatrix} 8 \\ 0 \\ -3 \\ 0 \\ 7 \\ 0 \\ 0 \end{pmatrix}$$ thành
+$$E_4 = \begin{pmatrix} 0 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}$$ được không?
+
+Ta thấy $v_5 = 7 \neq 0$ nên ta có thể chuẩn hóa
+$V$ thành
+$E_4$.
+
+\ul{Ví dụ mẫu 1}: Giải hệ pt tuyến tính sau trên
+$\mathbb{R}$
+
+$$\begin{cases} 2x_2 - x_1 + 3x_3 = 0 \\ 2x_1 - 3x_2 - 4x_3 = -2 \\ x_1 - x_2 - 2x_3 = -8 \end{cases}$$
+
+\ul{Ví dụ mẫu 2}: Giải và biện luận hệ pt tuyến tính sau trên
+$\mathbb{R}$ theo tham số thực
+$m$:
+
+$$\begin{cases} x_1 + x_2 + x_3 = 1 \\ x_1 + mx_2 + x_3 = m \\ mx_1 + x_2 + mx_3 = m^2 \end{cases}$$
+
+\ul{Giải}:
+
+\ul{Ví dụ mẫu 1}: Ta có dạng ma trận hóa của hệ như sau:
+
+$$(A|B) = \begin{pmatrix} -1 & 2 & 3 & | & 0 \\ 2 & -3 & -4 & | & -2 \\ 1 & -1 & -2 & | & -8 \end{pmatrix}$$
+
+$$\begin{matrix} (1) \rightarrow (1) + (3) \\ (2) \rightarrow (2) + 2(1) \\ (3) \rightarrow -1(3) \end{matrix}$$
+
+Do ma trận kết quả có 3 cột chuẩn liên tiếp nhau, nên hệ pt có nghiệm
+duy nhất là:
+
+$$\begin{cases} x_1 = -5 \\ x_2 = -4 \\ x_3 = 13 \end{cases}$$
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-
+
+\ul{Ví dụ mẫu 2}: Ta có dạng ma trận hóa của hệ là:
+
+$$(A|B) = \begin{pmatrix} 1 & 1 & 1 & | & 1 \\ 1 & m & 1 & | & m \\ m & 1 & m & | & m^2 \end{pmatrix}$$
+
+\emph{\ul{TH1}}: $m - 1 = 0 \Leftrightarrow m = 1$ thì hệ pt (*)
+
+$$\Leftrightarrow \begin{pmatrix} 1 & 1 & 1 & | & 1 \\ 1 & 1 & 1 & | & 1 \\ 1 & 1 & 1 & | & 1 \end{pmatrix}$$
+
+Ta thấy do cột 2, cột 3 không chuẩn hóa được nên hệ pt CÓ VÔ SỐ NGHIỆM
+như sau:
+
+Đặt $x_2 = a, x_3 = b, \forall a, b$. Ta có
+$x_1 + x_2 + x_3 = 1 \Leftrightarrow x_1 = 1 - a - b$
+
+\emph{\ul{TH2}}: $m - 1 \neq 0 \Leftrightarrow m \neq 1$
+
+Ta có (*)
+
+$$\begin{matrix} (2) \rightarrow \frac{1}{m-1}(2) \\ (3) \rightarrow \frac{1}{1-m}(3) \end{matrix}$$(**)
+
+\emph{\ul{TH2.1}} $m + 2 = 0 \Leftrightarrow m = -2$
+
+Ta có (**)$$\begin{pmatrix} 1 & 0 & -1 & | & 0 \\ 0 & 1 & -1 & | & 1 \\ 0 & 0 & 0 & | & 1 \end{pmatrix}$$ từ dòng 3 ta thấy
+
+\begin{quote}
+dạng (0 0 0 \textbar{} 1) nên hệ pt VÔ NGHIỆM
+\end{quote}
+
+\emph{\ul{TH2.2}} $m + 2 \neq 0 \Leftrightarrow m \neq -2$
+
+Ta có (**)
+
+\begin{quote}
+$$\xrightarrow{(3) \rightarrow \frac{1}{m+2}(3)}$$
+\end{quote}
+
+$$\begin{matrix} (2) \rightarrow (2) + (3) \\ (1) \rightarrow (1) - (m+1)(3) \end{matrix}$$
+
+Kết luận:
+
+Khi $m = -2$ thì hệ pt VÔ NGHIỆM
+
+Khi $m = 1$ hệ pt có vô số nghiệm, với
+$x_2 = a, x_3 = b, \forall a, b$ và
+$x_1 = 1 - a - b$
+
+Khi $m \neq 1$ và
+$m \neq -2$ thì hệ pt có nghiệm duy nhất:
+
+$x_1 = \frac{(m+1)^2}{m+2}$
+
+Bài tập:
+
+\ul{Bài 1}: Giải hệ pt tuyến tính sau trên
+$x_2 = 1$
+
+$$\begin{cases} 2x_2 + 3x_3 = 1 \\ 3x_4 + 2x_5 - x_6 = 2 \\ 3x_1 - x_3 = -4 \\ 2x_3 + x_4 = 1 \end{cases}$$
+
+\ul{Bài 2}: Giải và biện luận hệ pt tuyến tính sau trên
+$x_2 = 1$ theo tham số thực
+$m$
+
+$$\begin{cases} x_1 + mx_2 = 2 \\ 3x_2 + mx_3 = m \\ 3x_3 + mx_4 = -2 \end{cases}$$
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-
+
+* \textbf{\ul{Các cột bán chuẩn}}
+
+Các cột bán chuẩn cấp $$E_1'' = \begin{pmatrix} a \\ 0 \\ 0 \\ \vdots \\ 0 \end{pmatrix}, E_2'' = \begin{pmatrix} b \\ c \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \dots, E_n'' = \begin{pmatrix} u_1 \\ u_2 \\ \vdots \\ u_{n-1} \\ u_n \end{pmatrix}$$ là các cột có
+$$E_1'' = \begin{pmatrix} a \\ 0 \\ 0 \\ \vdots \\ 0 \end{pmatrix}, E_2'' = \begin{pmatrix} b \\ c \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \dots, E_n'' = \begin{pmatrix} u_1 \\ u_2 \\ \vdots \\ u_{n-1} \\ u_n \end{pmatrix}$$ thành phần, như sau:
+
+$a, c, \dots, u_n \neq 0$
+
+Trong đó: $b, u_1, u_2, \dots, u_{n-1}$ là những số tùy ý khác 0;
+còn
+
+$\text{tùy ý}$ là những số tùy ý.
+
+\end{document}

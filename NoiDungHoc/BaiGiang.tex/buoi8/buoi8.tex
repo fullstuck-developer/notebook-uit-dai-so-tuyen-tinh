@@ -1,0 +1,720 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{bm}
+\usepackage{setspace}
+\usepackage{titlesec}
+\geometry{margin=2.2cm}
+\setstretch{1.08}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Eu}{\mathrm{Eu}}
+\newcommand{\ip}[2]{\left\langle #1,#2\right\rangle}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\dist}{\mathrm{distance}}
+\newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\begin{document}
+
+\begin{center}
+{\large\underline{Buổi 08 -- Ngày 13-09-2026 -- môn Đại số tuyến tính -- lớp MA003.F32.LT.CNTT}}
+\end{center}
+
+\textbf{Lưu ý:}
+Cho $A$ là ma trận vuông cấp $n$ trên trường số thực $\R$.
+
+Giả sử $A$ có các trị riêng thực là
+\[
+\begin{cases}
+c_1=\lambda_1=\cdots\\
+c_2=\lambda_2=\cdots\\
+\vdots\\
+c_n=\lambda_n=\cdots
+\end{cases}
+\]
+Nghĩa là ta viết được
+\[
+p_A(\lambda)=\det(A-\lambda I_n)=(\lambda-\lambda_1)(\lambda-\lambda_2)\cdots(\lambda-\lambda_n).
+\]
+Từ đây ta sẽ tìm hệ số không chứa $\lambda$ để suy ra định thức của $A$.
+Đây chính là tích của các trị riêng; nghĩa là
+\[
+\det(A)=\lambda_1\lambda_2\cdots\lambda_n.
+\]
+
+\underline{Ví dụ mẫu:} Cho $A$ là ma trận vuông thực, cấp $2$, có 2 trị riêng là $\lambda_1=-5,\lambda_2=4$. Tìm $\det(A)=?$\\
+\underline{Giải:}
+
+Ta có đa thức đặc trưng:
+\[
+\begin{aligned}
+p_A(\lambda)&=\det(A-\lambda I_2)\\
+&=\left|\begin{matrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{matrix}
+-\lambda\begin{matrix}1&0\\0&1\end{matrix}\right|
+=(\lambda+5)(\lambda-4).
+\end{aligned}
+\]
+Do đó
+\[
+\left|\begin{matrix}a_{11}-\lambda&a_{12}\\a_{21}&a_{22}-\lambda\end{matrix}\right|
+=(\lambda+5)(\lambda-4),
+\]
+\[
+(a_{11}-\lambda)(a_{22}-\lambda)-a_{12}a_{21}=\lambda^2+\lambda-20,
+\]
+\[
+a_{11}a_{22}-\lambda a_{11}-\lambda a_{22}+\lambda^2-a_{12}a_{21}
+=\lambda^2+\lambda-20,
+\]
+\[
+a_{11}a_{22}-\lambda(a_{11}+a_{22})-a_{12}a_{21}=\lambda-20,
+\]
+\[
+\begin{cases}
+a_{11}+a_{22}=-1,\\
+a_{11}a_{22}-a_{12}a_{21}=-20.
+\end{cases}
+\]
+Suy ra
+\[
+\det(A)=a_{11}a_{22}-a_{12}a_{21}=-20.
+\]
+Kiểm chứng: $\det(A)=\lambda_1\lambda_2=(-5)\cdot4=-20$.
+
+\section*{CHƯƠNG 5: KHÔNG GIAN EUCLIDE}
+\subsection*{1/ MỘT SỐ KHÁI NIỆM}
+Cho $V$ là không gian véc tơ (không gian tuyến tính) tổng quát trên trường số thực $\R$.
+
+Một tích vô hướng (inner product -- cross product -- dot product) trên không gian $V$ là một ánh xạ
+\[
+\varphi:V\times V\to\R,
+\qquad
+(\alpha,\beta)\mapsto\varphi(\alpha,\beta)=\ip{\alpha}{\beta},
+\quad \forall\alpha,\beta\in V,
+\]
+thỏa các tính chất:
+\begin{enumerate}[label=\roman*)]
+\item $\ip{\alpha}{\alpha}\ge0,\ \forall\alpha\in V$.
+
+Ta có $\ip{\alpha}{\alpha}=0\Longleftrightarrow\alpha=0$.
+\item $\ip{\beta}{\alpha}=\ip{\alpha}{\beta},\ \forall\alpha,\beta\in V$ (tính chất đối xứng).
+\item $\ip{c\alpha_1+\alpha_2}{\beta}=c\ip{\alpha_1}{\beta}+\ip{\alpha_2}{\beta},\quad \forall c\in\R,\ \forall\alpha_1,\alpha_2,\beta\in V$.
+\item $\ip{\alpha}{c\beta_1+\beta_2}=c\ip{\alpha}{\beta_1}+\ip{\alpha}{\beta_2},\quad \forall c\in\R,\ \forall\alpha,\beta_1,\beta_2\in V$.
+\item $\ip{\alpha}{0}=\ip{0}{\alpha}=0,\ \forall\alpha\in V$.
+\end{enumerate}
+
+\textbf{Lưu ý:} Khi kiểm tra ánh xạ có phải là một tích vô hướng trên không gian $V$ hay không, thì ta chỉ cần kiểm 3 tính chất i), ii), iii), trong đó tính chất i) là khó nhất. Tính chất iv) mặc nhiên thỏa nếu ta có tính chất ii) và iii); còn tính chất v) là luôn thỏa với mọi véc tơ nên ta không cần kiểm tính chất v).
+
+Để chứng minh ánh xạ không phải là một tích vô hướng trên không gian thì ta chỉ cần chứng tỏ 1 trong 4 tính chất đầu tiên (i), ii), iii), iv) nêu trên bị vi phạm.
+
+Ta gọi không gian véc tơ $V$, có trang bị thêm một tích vô hướng đi kèm là không gian Euclide (Euclidian space), và ký hiệu là
+\[
+\Eu=(V,\ip{\cdot}{\cdot}).
+\]
+
+\underline{Ví dụ mẫu 1:} Trên $V=\R^3$, cho ánh xạ
+\[
+\varphi:\R^3\times\R^3\to\R
+\]
+với
+\[
+\alpha=\vect{x_1\\x_2\\x_3},\quad
+\beta=\vect{y_1\\y_2\\y_3},
+\]
+\[
+\ip{\alpha}{\beta}=2x_1y_1-x_1y_2+3x_3y_3-x_2y_1+4x_2y_2.
+\]
+Hỏi $\ip{\alpha}{\beta}$ có phải là tích vô hướng hay không? Vì sao?
+
+\underline{Ví dụ mẫu 2:} Cho $V=\R^2$, cho ánh xạ
+\[
+\varphi:\R^2\times\R^2\to\R
+\]
+với
+\[
+\alpha=\vect{x_1\\x_2},\quad \beta=\vect{y_1\\y_2},
+\]
+\[
+\ip{\alpha}{\beta}=x_1y_1-5x_1y_2+2x_2y_1-10x_2y_2+3y_1y_2+4x_1^2.
+\]
+Hỏi $\ip{\alpha}{\beta}$ có phải là tích vô hướng hay không? Vì sao?
+
+\underline{Giải:}
+
+\underline{Ví dụ mẫu 1:} Ta chứng tỏ $\ip{\alpha}{\beta}$ là một tích vô hướng như sau.
+
+\textit{i/} Ta có
+\[
+\begin{aligned}
+\ip{\alpha}{\alpha}
+&=2x_1^2-x_1x_2+3x_3^2-x_2x_1+4x_2^2\\
+&=2x_1^2-2x_1x_2+4x_2^2+3x_3^2\\
+&=(x_1^2-2x_1x_2+x_2^2)+x_1^2+3x_2^2+3x_3^2\\
+&=(x_1-x_2)^2+x_1^2+3x_2^2+3x_3^2\ge0.
+\end{aligned}
+\]
+là luôn đúng. Nên ta có $\ip{\alpha}{\alpha}\ge0,\ \forall\alpha\in\R^3$. (*)
+
+\textit{ii/} Ta có
+\[
+\begin{aligned}
+\ip{\alpha}{\beta}
+&=2x_1y_1-x_1y_2+3x_3y_3-x_2y_1+4x_2y_2,
+\\
+\ip{\beta}{\alpha}
+&=2y_1x_1-y_1x_2+3y_3x_3-y_2x_1+4y_2x_2\\
+&=2x_1y_1-x_2y_1+3x_3y_3-x_1y_2+4x_2y_2\\
+&=2x_1y_1-x_1y_2+3x_3y_3-x_2y_1+4x_2y_2.
+\end{aligned}
+\]
+Suy ra $\ip{\alpha}{\beta}=\ip{\beta}{\alpha},\ \forall\alpha,\beta\in\R^3$. (**)
+
+\textit{iii/} Ta chứng tỏ tuyến tính theo biến thứ nhất, nghĩa là cần chứng minh
+\[
+\ip{c\alpha_1+\alpha_2}{\beta}=c\ip{\alpha_1}{\beta}+\ip{\alpha_2}{\beta}.
+\]
+Với
+\[
+\alpha_1=\vect{x_1\\x_2\\x_3},\quad
+\alpha_2=\vect{y_1\\y_2\\y_3},\quad
+\beta=\vect{z_1\\z_2\\z_3},
+\]
+ta có
+\[
+c\alpha_1+\alpha_2=\vect{cx_1+y_1\\cx_2+y_2\\cx_3+y_3}.
+\]
+Do đó
+\[
+\begin{aligned}
+\ip{c\alpha_1+\alpha_2}{\beta}
+&=2(cx_1+y_1)z_1-(cx_1+y_1)z_2+3(cx_3+y_3)z_3-(cx_2+y_2)z_1+4(cx_2+y_2)z_2\\
+&=c(2x_1z_1-x_1z_2+3x_3z_3-x_2z_1+4x_2z_2)\\
+&\quad +(2y_1z_1-y_1z_2+3y_3z_3-y_2z_1+4y_2z_2)\\
+&=c\ip{\alpha_1}{\beta}+\ip{\alpha_2}{\beta}.
+\end{aligned}
+\]
+(***). Từ (*), (**), (***), suy ra $\ip{\alpha}{\beta}$ là một tích vô hướng trên $\R^3$.
+
+\underline{Ví dụ mẫu 2:} Ta chứng tỏ $\ip{\alpha}{\beta}$ không phải là một tích vô hướng.
+
+\textit{Cách 1:} Ta chọn $\alpha=(0,4)^T$ thì
+\[
+\ip{\alpha}{\alpha}=0-5\cdot4+2\cdot4-10\cdot4+3\cdot4+4\cdot4^2=-160<0.
+\]
+Suy ra không phải là một tích vô hướng trên $\R^2$.
+
+\textit{Cách 2:} Ta chọn
+\[
+\alpha=\vect{2\\-1},\qquad \beta=\vect{-3\\4}.
+\]
+Suy ra
+\[
+\ip{\alpha}{\beta}=2(-3)-5\cdot2\cdot4+2(-1)(-3)-10(-1)4+3(-3)4+4\cdot2^2=-20,
+\]
+Mà
+\[
+\ip{\beta}{\alpha}=(-3)2-5(-3)(-1)+2\cdot4\cdot2-10\cdot4(-1)+3\cdot2(-1)+4(-3)^2=65.
+\]
+Suy ra $\ip{\alpha}{\beta}\ne\ip{\beta}{\alpha}$ cho nên không phải là một tích vô hướng trên $\R^2$.
+
+\textit{Cách 3:} Ta chọn
+\[
+c=2,\quad \alpha_1=\vect{-1\\3},\quad \alpha_2=\vect{2\\1},\quad \beta=\vect{-4\\5}.
+\]
+Suy ra
+\[
+c\alpha_1+\alpha_2=2\vect{-1\\3}+\vect{2\\1}=\vect{0\\7}.
+\]
+\[
+\ip{c\alpha_1+\alpha_2}{\beta}=-466,
+\]
+trong khi
+\[
+c\ip{\alpha_1}{\beta}=-402,\qquad \ip{\alpha_2}{\beta}=-160.
+\]
+Do đó
+\[
+c\ip{\alpha_1}{\beta}+\ip{\alpha_2}{\beta}=-562\ne-466=\ip{c\alpha_1+\alpha_2}{\beta},
+\]
+cho nên không phải là một tích vô hướng trên $\R^2$.
+
+\textit{Cách 4:} Ta chọn
+\[
+c=-1,\quad \alpha=\vect{2\\3},\quad \beta_1=\vect{-2\\5},\quad \beta_2=\vect{1\\-6}.
+\]
+Suy ra
+\[
+c\beta_1+\beta_2=-\vect{-2\\5}+\vect{1\\-6}=\vect{3\\-11}.
+\]
+\[
+\ip{\alpha}{c\beta_1+\beta_2}=381,
+\]
+trong khi
+\[
+c\ip{\alpha}{\beta_1}=230,\qquad \ip{\alpha}{\beta_2}=246.
+\]
+Vì $230+246=476\ne381$, nên tính tuyến tính theo biến thứ hai bị vi phạm; không phải là một tích vô hướng trên $\R^2$.
+
+\underline{Bài tập tương tự:} Kiểm tra xem ánh xạ có phải là một tích vô hướng trên không gian $V$ hay không? Vì sao?
+\begin{enumerate}[label=\alph*/]
+\item $V=\R^2$ và $\ip{\alpha}{\beta}=5x_1y_1+8x_2y_2$.
+\item $V=\R^2$ và $\ip{\alpha}{\beta}=6x_1y_2-9x_2y_1+2x_1^2$.
+\item $V=\R^3$ và
+\[
+\ip{\alpha}{\beta}=x_1y_1+2x_1y_2+3x_3y_3+2x_2y_1+12x_2y_2.
+\]
+\item $V=\R^3$ và
+\[
+\ip{\alpha}{\beta}=6x_1y_1-5x_2y_3+2x_2y_1-8x_2y_2.
+\]
+\item $V=\R^3$ và
+\[
+\ip{\alpha}{\beta}=4x_1y_1-2x_2y_3+3x_2y_2-7x_1x_3.
+\]
+\end{enumerate}
+
+\textbf{Lưu ý:} Trên không gian $V=\R^n$, ta luôn có tích vô hướng tiêu chuẩn:
+\[
+\ip{\alpha}{\beta}=x_1y_1+x_2y_2+\cdots+x_ny_n.
+\]
+
+\subsection*{2/ ĐỘ DÀI VÉC TƠ VÀ KHOẢNG CÁCH GIỮA 2 VÉC TƠ}
+Cho không gian Euclide $\Eu=(V,\ip{\cdot}{\cdot})$. Cho 2 véc tơ $\alpha,\beta\in\Eu$.
+\[
+\norm{\alpha}=\sqrt{\ip{\alpha}{\alpha}}=\text{độ dài (module) của véc tơ }\alpha.
+\]
+Và khoảng cách giữa 2 véc tơ $\alpha,\beta$ là
+\[
+d(\alpha,\beta)=\norm{\alpha-\beta}=\sqrt{\ip{\alpha-\beta}{\alpha-\beta}}=\dist(\alpha,\beta)
+\]
+\[
+=\norm{\beta-\alpha}=\sqrt{\ip{\beta-\alpha}{\beta-\alpha}}.
+\]
+
+\underline{Ví dụ 1:} Trên không gian Euclide $\Eu=(V=\R^4,\ip{\cdot}{\cdot})$ với $\ip{\cdot}{\cdot}$ là tích vô hướng tiêu chuẩn trên $\R^4$, cho các véc tơ
+\[
+\alpha_1=(3,-2,1,5),\quad \alpha_2=(-1,7,3,-8),\quad \alpha_3=(6,-4,2,-1).
+\]
+Tìm độ dài các véc tơ và tính khoảng cách giữa các véc tơ; nghĩa là tìm
+\[
+\left\{\begin{array}{l}
+\norm{\alpha_1},\norm{\alpha_2},\norm{\alpha_3},\\
+d(\alpha_1,\alpha_2),d(\alpha_2,\alpha_3),d(\alpha_1,\alpha_3).
+\end{array}\right.
+\]
+Gợi ý giải:
+\[
+\norm{\alpha_1}=\sqrt{\ip{\alpha_1}{\alpha_1}}=\sqrt{3^2+(-2)^2+1^2+5^2}=\sqrt{39}.
+\]
+Và
+\[
+\alpha_1-\alpha_2=(4,-9,-2,13),
+\]
+\[
+d(\alpha_1,\alpha_2)=\sqrt{4^2+(-9)^2+(-2)^2+13^2}=3\sqrt{30}.
+\]
+
+\underline{Ví dụ 2:} Trên không gian Euclide $\Eu=(V=\R^5,\ip{\cdot}{\cdot})$ với tích vô hướng tiêu chuẩn trên $\R^5$, cho
+\[
+\alpha_1=(4,1,-6,7,5),\quad \alpha_2=(2,-3,-1,4,-5),\quad \alpha_3=(-7,2,-2,9,3).
+\]
+Tìm độ dài các véc tơ và tính khoảng cách giữa các véc tơ; nghĩa là tìm
+\[
+\left\{\begin{array}{l}
+\norm{\alpha_1},\norm{\alpha_2},\norm{\alpha_3},\\
+d(\alpha_1,\alpha_2),d(\alpha_2,\alpha_3),d(\alpha_1,\alpha_3).
+\end{array}\right.
+\]
+
+\subsection*{3/ TRỰC GIAO (ORTHOGONAL) VÀ TRỰC CHUẨN (ORTHONORMAL)}
+Cho không gian Euclide $\Eu=(V,\ip{\cdot}{\cdot})$.
+Cho tập hợp $S=\{\alpha_1,\alpha_2,\ldots,\alpha_m\}$ trên $\Eu$.
+
+Ta gọi 2 véc tơ $\alpha_1$ và $\alpha_2$ là vuông góc nhau, và kí hiệu $\alpha_1\perp\alpha_2$ khi và chỉ khi
+\[
+\ip{\alpha_1}{\alpha_2}=0.
+\]
+Nếu các véc tơ trong $S$ đều vuông góc với nhau, nghĩa là
+\[
+\ip{\alpha_i}{\alpha_j}=0,\quad\forall\alpha_i,\alpha_j\in S,\ i\ne j,
+\]
+thì ta nói $S$ là tập hợp trực giao (orthogonal set).
+
+Nếu $S$ là một tập hợp trực giao và có thêm tính chất là độ dài các véc tơ trong $S$ đều bằng $1$ thì ta nói $S$ là tập hợp trực chuẩn (orthonormal set).
+
+Cho véc tơ $\alpha\in\Eu$. Ta nói $\alpha\perp S$ nếu
+\[
+\ip{\alpha}{\alpha_i}=0,\quad\forall\alpha_i\in S.
+\]
+Ta gọi tập hợp chứa các véc tơ vuông góc với tập hợp $S$ là không gian trực giao với $S$ và kí hiệu
+\[
+S^\perp=\{\alpha\in\Eu\mid \alpha\perp S\}.
+\]
+
+\subsection*{4/ TRỰC GIAO HÓA VÀ TRỰC CHUẨN HÓA MỘT TẬP HỢP BẰNG PHƯƠNG PHÁP GRAM--SCHMIDT}
+Cho không gian Euclide $\Eu=(V,\ip{\cdot}{\cdot})$. Cho tập hợp $S=\{\alpha_1,\alpha_2,\ldots,\alpha_m\}$ trên $\Eu$.
+Ta trực giao hóa $S$ thành tập hợp trực giao $S'$ trên $\Eu$ như sau:
+\[
+\beta_1=\alpha_1,
+\]
+\[
+\beta_2=\alpha_2-\frac{\ip{\alpha_2}{\beta_1}}{\norm{\beta_1}^2}\beta_1,
+\]
+\[
+\beta_3=\alpha_3-\frac{\ip{\alpha_3}{\beta_2}}{\norm{\beta_2}^2}\beta_2
+-\frac{\ip{\alpha_3}{\beta_1}}{\norm{\beta_1}^2}\beta_1,
+\]
+\[
+\beta_4=\alpha_4-\frac{\ip{\alpha_4}{\beta_3}}{\norm{\beta_3}^2}\beta_3
+-\frac{\ip{\alpha_4}{\beta_2}}{\norm{\beta_2}^2}\beta_2
+-\frac{\ip{\alpha_4}{\beta_1}}{\norm{\beta_1}^2}\beta_1,
+\]
+\[
+\vdots
+\]
+\[
+\beta_m=\alpha_m-\frac{\ip{\alpha_m}{\beta_{m-1}}}{\norm{\beta_{m-1}}^2}\beta_{m-1}-\cdots
+-\frac{\ip{\alpha_m}{\beta_2}}{\norm{\beta_2}^2}\beta_2
+-\frac{\ip{\alpha_m}{\beta_1}}{\norm{\beta_1}^2}\beta_1.
+\]
+Suy ra $S'=\{\beta_1,\beta_2,\ldots,\beta_m\}$ là một tập hợp trực giao cần tìm.
+
+Ta trực chuẩn hóa tiếp theo thành tập hợp trực chuẩn $S''$ như sau:
+\[
+\gamma_1=\frac{\beta_1}{\norm{\beta_1}},\qquad
+\gamma_2=\frac{\beta_2}{\norm{\beta_2}},\qquad
+\ldots,\qquad
+\gamma_m=\frac{\beta_m}{\norm{\beta_m}}.
+\]
+Suy ra $S''=\{\gamma_1,\gamma_2,\ldots,\gamma_m\}$ là một tập hợp trực chuẩn trên $\Eu$.
+
+\underline{Ví dụ mẫu 3:} Trên không gian Euclide $\Eu=(V=\R^3,\ip{\cdot}{\cdot})$, với tích vô hướng tiêu chuẩn trên $\R^3$, cho tập hợp
+\[
+S=\{u_1=(1,1,1),u_2=(-1,1,0),u_3=(1,2,1)\}.
+\]
+Hãy trực chuẩn hóa $S$.
+
+\underline{Giải:} Dùng pp Gram--Schmidt, ta làm như sau:
+\[
+v_1=u_1=(1,1,1),
+\]
+\[
+\begin{aligned}
+v_2&=u_2-\frac{\ip{u_2}{v_1}}{\norm{v_1}^2}v_1\\
+&=(-1,1,0)-\frac{(-1)(1)+1\cdot1+0\cdot1}{1^2+1^2+1^2}(1,1,1)\\
+&=(-1,1,0)-0(1,1,1)=(-1,1,0),
+\end{aligned}
+\]
+\[
+\begin{aligned}
+v_3&=u_3-\frac{\ip{u_3}{v_2}}{\norm{v_2}^2}v_2-\frac{\ip{u_3}{v_1}}{\norm{v_1}^2}v_1\\
+&=(1,2,1)-\frac{1(-1)+2(1)+1(0)}{(-1)^2+1^2+0^2}(-1,1,0)\\
+&\quad-\frac{1\cdot1+2\cdot1+1\cdot1}{1^2+1^2+1^2}(1,1,1)\\
+&=(1,2,1)-\frac12(-1,1,0)-\frac43(1,1,1)\\
+&=\left(\frac16,\frac16,-\frac13\right).
+\end{aligned}
+\]
+Ta có $S'=\{v_1,v_2,v_3\}$ là một tập hợp trực giao trên $\R^3$.
+Đặt
+\[
+q_1=\frac{v_1}{\norm{v_1}}=\frac{(1,1,1)}{\sqrt3}=\left(\frac1{\sqrt3},\frac1{\sqrt3},\frac1{\sqrt3}\right),
+\]
+\[
+q_2=\frac{v_2}{\norm{v_2}}=\frac{(-1,1,0)}{\sqrt2}=\left(-\frac1{\sqrt2},\frac1{\sqrt2},0\right),
+\]
+\[
+\begin{aligned}
+q_3&=\frac{v_3}{\norm{v_3}}
+=\frac{(1/6,1/6,-1/3)}{\sqrt{(1/6)^2+(1/6)^2+(-1/3)^2}}\\
+&=\frac1{\sqrt6}\left(\frac16,\frac16,-\frac13\right)\cdot 6
+=\left(\frac1{\sqrt6},\frac1{\sqrt6},-\frac2{\sqrt6}\right).
+\end{aligned}
+\]
+Suy ra $S''=\{q_1,q_2,q_3\}$ là một tập hợp trực chuẩn của $\R^3$.
+
+\underline{Bài tập tương tự:} Yêu cầu như ví dụ mẫu 3. Trên không gian Euclide $\Eu=(V=\R^3,\ip{\cdot}{\cdot})$, với tích vô hướng tiêu chuẩn trên $\R^3$, cho tập hợp
+\[
+S=\{u_1=(2,3,6),u_2=(5,-3,8),u_3=(8,5,3)\}.
+\]
+Hãy trực chuẩn hóa $S$.
+
+\underline{Bài tập tương tự khác:} Trên không gian Euclide $\Eu=(V=\R^3,\ip{\cdot}{\cdot})$ với
+\[
+\ip{\alpha}{\beta}=x_1y_1+3x_2y_2+2x_3y_3,
+\]
+là một tích vô hướng trên $\R^3$. Hãy trực chuẩn hóa tập hợp
+\[
+S=\{u_1=(1;0;1),u_2=(-4;0;2),u_3=(-3;-1;-3)\}.
+\]
+
+\underline{Bài tập tương tự:} hãy trực chuẩn hóa các tập hợp sau trên không gian Euclide tương ứng.
+\begin{enumerate}
+\item $\Eu=(\R^3,\ip{\cdot}{\cdot})$ và $S=\{\alpha_1=(2;3;6),\alpha_2=(-3;6;-2),\alpha_3=(6;2;-3)\}$.
+\item $\Eu=(\R^3,\ip{\cdot}{\cdot})$ và $S=\{\alpha_1=(1;2;2),\alpha_2=(-2;2;-1),\alpha_3=(2;1;-2)\}$.
+\item $\Eu=(\R^3,\ip{\cdot}{\cdot})$ và $S=\{\alpha_1=(8;1;-4),\alpha_2=(1;0;2),\alpha_3=(-2;8;-2)\}$.
+\end{enumerate}
+
+\subsection*{5/ TỌA ĐỘ VÉC TƠ THEO CƠ SỞ TRỰC CHUẨN}
+Cho không gian Euclide $\Eu=(V_n,\ip{\cdot}{\cdot})$ có cơ sở trực chuẩn $\Xi=\{\gamma_1,\gamma_2,\ldots,\gamma_n\}$.
+
+Cho trước véc tơ $\alpha\in V_n$, thì ta luôn có $c_1,c_2,\ldots,c_n$ sao cho
+\[
+\alpha=c_1\gamma_1+c_2\gamma_2+\cdots+c_n\gamma_n.
+\]
+Trong đó
+\[
+c_1=\ip{\alpha}{\gamma_1},\quad c_2=\ip{\alpha}{\gamma_2},\quad\ldots,\quad c_n=\ip{\alpha}{\gamma_n}.
+\]
+Suy ra, tọa độ của véc tơ $\alpha$ theo cơ sở trực chuẩn $\Xi$ là
+\[
+[\alpha]_{\Xi}=\begin{pmatrix}
+\ip{\alpha}{\gamma_1}\\
+\ip{\alpha}{\gamma_2}\\
+\vdots\\
+\ip{\alpha}{\gamma_n}
+\end{pmatrix}.
+\]
+
+\underline{Ví dụ mẫu:} Trên không gian Euclide $\Eu=(V=\R^3,\ip{\cdot}{\cdot})$ có cơ sở trực chuẩn
+\[
+\Xi=\left\{\gamma_1=\frac13(1,2,2),\gamma_2=\frac13(-2,2,-1),\gamma_3=\frac13(2,1,-2)\right\}.
+\]
+a/ Cho $\alpha=(6;-7;1)\in\R^3$. Tìm $[\alpha]_{\Xi}=?$\\
+b/ Cho $\beta=(-2;1;-3)\in\R^3$. Tìm $[\beta]_{\Xi}=?$
+
+Giải: Do $\Xi$ là cơ sở trực chuẩn của $\Eu=(\R^3,\ip{\cdot}{\cdot})$, nên ta có:
+\[
+c_1=\ip{\alpha}{\gamma_1}=6\cdot\frac13+(-7)\frac23+1\frac23=-2,
+\]
+\[
+c_2=\ip{\alpha}{\gamma_2}=6\left(-\frac23\right)+(-7)\frac23+1\left(-\frac13\right)=-9,
+\]
+\[
+c_3=\ip{\alpha}{\gamma_3}=6\frac23+(-7)\frac13+1\left(-\frac23\right)=1.
+\]
+Suy ra
+\[
+[\alpha]_{\Xi}=\begin{pmatrix}-2\\-9\\1\end{pmatrix}.
+\]
+Với $\beta$:
+\[
+c_1=\ip{\beta}{\gamma_1}=(-2)\frac13+1\frac23+(-3)\frac23=-2,
+\]
+\[
+c_2=\ip{\beta}{\gamma_2}=(-2)\left(-\frac23\right)+1\frac23+(-3)\left(-\frac13\right)=3,
+\]
+\[
+c_3=\ip{\beta}{\gamma_3}=(-2)\frac23+1\frac13+(-3)\left(-\frac23\right)=1.
+\]
+Suy ra
+\[
+[\beta]_{\Xi}=\begin{pmatrix}-2\\3\\1\end{pmatrix}.
+\]
+
+\subsection*{6/ CHÉO HÓA TRỰC GIAO MA TRẬN VUÔNG (phần đọc thêm cho vui)}
+Cho ma trận thực, vuông $A$, cấp $n$.
+Ta gọi $A$ là ma trận trực giao, nếu và chỉ nếu $A$ khả nghịch và
+\[
+A^{-1}=A^T.
+\]
+Ta chéo hóa trực giao ma trận $A$ như sau:
+\begin{itemize}
+\item Ta tìm
+\[
+p_A(x)=p_A(\lambda)=\det(xI_n-A)=\det(A-\lambda I_n).
+\]
+\item Giải pt $p_A(x)=0$ hoặc $p_A(\lambda)=0$ trên $\R$ để tìm nghiệm.
+\item Nếu pt vô nghiệm thì ta kết luận không thể chéo hóa $A$ trên $\R$ và ta dừng bài toán.
+\item Nếu pt có các nghiệm $x_1=\lambda_1=\cdots,\ x_2=\lambda_2=\cdots,\ldots,x_k=\lambda_k=\cdots$ thì ta nói $p_A(x)$ tách được trên $\R$ và viết
+\[
+p_A(x)=(x-c_1)^{r_1}(x-c_2)^{r_2}(x-c_3)^{r_3}\cdots(x-c_k)^{r_k},
+\]
+trong đó $c_1=\lambda_1,\ldots,c_k=\lambda_k$.
+\[
+r_1=\cdots,\quad r_2=\cdots,\quad\ldots,\quad r_k=\cdots.
+\]
+Suy ra nếu $r_1=r_2=\cdots=r_k=1$ thì $A$ chéo hóa được trên $\R$.
+\item Tiếp theo, ta tìm cơ sở $\alpha_j$ cho các không gian riêng
+\[
+E_{c_j}=E_{\lambda_j}=\{X\in\R^n\mid(A-c_jI_n)X=0\}
+\]
+và xác định số chiều $\dim_{\R}E_{c_j}=?$.
+\end{itemize}
+Nếu có (ít nhất) 1 số $j\in\{1,2,\ldots,k\}$ mà $\dim_{\R}E_{c_j}<r_j$ thì $A$ không chéo hóa được và ta dừng bài toán.
+Nếu $\dim_{\R}E_{c_j}=r_j$ với mọi $j=1,2,\ldots,k$ thì $A$ chéo hóa được trên $\R$.
+
+Ta trực chuẩn hóa cơ sở $\alpha^j$ bằng pp Gram--Schmidt thành cơ sở trực chuẩn $\Xi_j$.
+Gọi $\Xi=\Xi_1\cup\Xi_2\cup\cdots\cup\Xi_k$ thì $\Xi$ là một cơ sở trực chuẩn của $\R^n$.
+Đặt $P=I=P_{\beta_0\to\Xi}$ thì $P=I$ là ma trận trực giao, thỏa
+\[
+D=P^{-1}AP=P^TAP=\begin{pmatrix}
+c_1&&\\&c_2&\\&&\ddots\\&&&c_n
+\end{pmatrix}.
+\]
+
+\underline{Ví dụ mẫu:} Cho ma trận vuông thực
+\[
+A=\begin{pmatrix}
+2&-1&-1\\
+-1&2&-1\\
+-1&-1&2
+\end{pmatrix}.
+\]
+Hãy chéo hóa trực giao ma trận $A$.
+
+\underline{Giải:} Ta có
+\[
+p_A(x)=\det(xI_3-A)=
+\left|\begin{matrix}x-2&1&1\\1&x-2&1\\1&1&x-2\end{matrix}\right|
+=(x-2)^3+1+1-(x-2)-(x-2)-(x-2)=x(x-3)^2.
+\]
+Suy ra
+\[
+c_1=\lambda_1=0,\ r_1=1,\qquad c_2=\lambda_2=3,\ r_2=2.
+\]
+
+Tiếp theo, ta tìm cơ sở cho các không gian riêng.
+
+Với $c_1=\lambda_1=0$, ta có
+\[
+E_0=\{X\in\R^3\mid(A-0I_3)X=0\}.
+\]
+Giải hệ pt $(A-0I_3)X=0$. Phép biến đổi sơ cấp cho dạng bậc thang
+\[
+\left[\begin{array}{ccc|c}
+2&-1&-1&0\\
+-1&2&-1&0\\
+-1&-1&2&0
+\end{array}\right]
+\longrightarrow
+\left[\begin{array}{ccc|c}
+2&-1&-1&0\\
+0&3&-3&0\\
+0&0&0&0
+\end{array}\right].
+\]
+Do cột 3 không bán chuẩn hóa được nên hệ có vô số nghiệm. Đặt $x_3=t$, $t\in\R$.
+\[
+\begin{cases}
+2x_1-x_2-x_3=0,\\
+3x_2-3x_3=0
+\end{cases}
+\Longrightarrow
+\begin{cases}
+2x_1=x_2+x_3=2t,\\x_2=x_3=t.
+\end{cases}
+\]
+Nên ta có nghiệm $x_1=x_2=x_3=t$, $\forall t\in\R$.
+Suy ra cơ sở $\alpha_1=\{(1;1;1)\}$ và số chiều là $\dim_{\R}E_{c_1}=1=r_1$.
+
+Với $c_2=\lambda_2=3$, ta có
+\[
+E_3=\{X\in\R^3\mid(A-3I_3)X=0\}.
+\]
+Giải hệ $(A-3I_3)X=0$ được
+\[
+\left[\begin{array}{ccc|c}
+-1&-1&-1&0\\
+-1&-1&-1&0\\
+-1&-1&-1&0
+\end{array}\right]
+\longrightarrow
+\left[\begin{array}{ccc|c}
+-1&-1&-1&0\\
+0&0&0&0\\
+0&0&0&0
+\end{array}\right].
+\]
+\[
+x_1=-a-b,\qquad x_2=a,\qquad x_3=b,\quad \forall a,b\in\R.
+\]
+Suy ra cơ sở $\alpha_2=\{(-1;1;0),(-1;0;1)\}$ và số chiều là $\dim_{\R}E_{c_2}=2=r_2$.
+
+Từ (1), (2) suy ra $A$ chéo hóa được trên $\R$.
+
+Ta trực chuẩn hóa bằng pp Gram--Schmidt cho cơ sở $\alpha_1$ và $\alpha_2$ như sau.
+
+$a_1$ thành
+\[
+\Xi_1=\left\{\gamma_1=\frac{\alpha_1}{\norm{\alpha_1}}=\frac{(1,1,1)}{\sqrt{1^2+1^2+1^2}}=\frac1{\sqrt3}(1,1,1)\right\}.
+\]
+
+$a_2$ thành
+\[
+\beta=\left\{\beta_2=\alpha_2=(-1,1,0),\quad
+\beta_3=\alpha_3-\frac{\ip{\alpha_3}{\beta_2}}{\norm{\beta_2}^2}\beta_2\right\}
+\]
+\[
+=\left\{\beta_2=(-1,1,0),\quad
+\beta_3=(-1,0,1)-\frac{(-1)(-1)+0\cdot1+1\cdot0}{(-1)^2+1^2+0^2}(-1,1,0)\right\}
+\]
+\[
+=\left\{\beta_2=(-1,1,0),\quad\beta_3=\frac12(-1,-1,2)\right\}.
+\]
+Trực chuẩn hóa $\beta$ thành
+\[
+\Xi_2=\left\{\gamma_2=\frac{\beta_2}{\norm{\beta_2}}=\frac1{\sqrt2}(-1,1,0),\quad
+\gamma_3=\frac{\beta_3}{\norm{\beta_3}}=\frac1{\sqrt6}(-1,-1,2)\right\}.
+\]
+Đặt $\Xi=\Xi_1\cup\Xi_2=\{\gamma_1,\gamma_2,\gamma_3\}$ là một cơ sở trực chuẩn của $\R^3$.
+
+Gọi
+\[
+P=T=P_{\beta_0\to\Xi}=
+\begin{pmatrix}
+1/\sqrt3&-1/\sqrt2&-1/\sqrt6\\
+1/\sqrt3&1/\sqrt2&-1/\sqrt6\\
+1/\sqrt3&0&2/\sqrt6
+\end{pmatrix}.
+\]
+Thì $P=T$ là ma trận trực giao, nghĩa là $P^{-1}=P^T$, thỏa
+\[
+D=P^{-1}AP=P^TAP=
+\begin{pmatrix}0&0&0\\0&3&0\\0&0&3\end{pmatrix}.
+\]
+Đây là dạng chéo hóa trực giao cần tìm của $A$.
+
+\underline{Bài tập tương tự:} chéo hóa trực giao ma trận vuông thực
+\[
+A=\begin{pmatrix}1&0&1\\0&1&0\\1&0&1\end{pmatrix}.
+\]
+
+\section*{NỘI DUNG ÔN TẬP CUỐI KỲ -- THỜI GIAN LÀM BÀI 90 PHÚT}
+\textbf{SV chỉ được sử dụng tài liệu GIẤY}
+
+\underline{Câu 1.} Trên $V=\R^5$ (hoặc $V=\R^6$), cho tập hợp
+\[
+W=\{\cdots\mid\cdots\}.
+\]
+Chứng minh rằng $W$ là không gian véc tơ con của $V$. Tìm hệ sinh, cơ sở và xác định số chiều cho $W$.
+
+\underline{Câu 2.} Trên $V=\R^3$, cho tập hợp
+\[
+a=\{u_1=\cdots;u_2=\cdots;u_3=\cdots\}.
+\]
+\begin{enumerate}[label=\alph*/]
+\item Chứng minh rằng $a$ là một cơ sở của $\R^3$.
+\item Trực chuẩn hóa cơ sở $a$ thành cơ sở trực chuẩn $b$.
+\item Tìm tọa độ của một véc tơ $v=\cdots\in\R^3$ theo cơ sở $a$.
+\item Tìm tọa độ của một véc tơ $v=\cdots\in\R^3$ theo cơ sở $b$.
+\end{enumerate}
+
+\underline{Câu 3:} Trên $V=\R^4$, với tích vô hướng $\ip{\cdot}{\cdot}=\cdots$, cho hệ
+$S=\{u_1=\cdots;u_2=\cdots;u_3=\cdots\}$. Dùng pp Gram--Schmidt để trực chuẩn hóa $S$.
+Cho véc tơ $\lambda=\cdots$. Tìm tọa độ của véc tơ $\lambda$ theo cơ sở vừa trực chuẩn hóa được.
+
+\underline{Câu 4.} Cho ma trận vuông thực, cấp $2$, $A=\cdots$. Hãy chéo hóa ma trận $A$, rồi tìm $A^m$, $\forall m\in\N$ và suy ra $A^{2026}$.
+
+\begin{center}
+----------HẾT----------
+\end{center}
+
+\end{document}

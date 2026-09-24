@@ -1,0 +1,793 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[margin=1in]{geometry}
+\usepackage{ulem}
+\newcommand{\ul}[1]{\uline{#1}}
+
+\begin{document}
+\ul{Buổi 06 -- Ngày 23-08-2026 -- môn Đại số tuyến tính -- lớp MA003.F32.LT.CNTT}
+
+\textbf{ĐỀ KIỂM TRA GIỮA KỲ III}
+
+\textbf{NĂM HỌC 2025-2026 -- MÔN MA003}
+
+(\emph{SV được phép sử dụng tài liệu khi làm bài})
+
+Nộp bài trên Assignment của Elearning.
+
+Làm bài và đặt tên file như sau:
+
+\emph{\ul{Phương án 1}}:
+
+Làm bài vào giấy $\rightarrow$ chụp hình $\rightarrow$ dán các hình bài làm vào 1 file word $\rightarrow$
+lưu file theo định dạng .pdf theo quy ước ``MSSV\_Họ và tên.pdf'' $\rightarrow$ nộp
+trên Assignment của Elearning.
+
+\emph{\ul{Phương án 2}}:
+
+Làm bài trên file Word/Excel/hoặc phần mềm soạn thảo văn bản khác $\rightarrow$ lưu
+lại theo định dạng .pdf theo quy ước ``MSSV\_Họ và tên.pdf'' $\rightarrow$ nộp trên
+Assignment của Elearning. Nhớ gõ công thức Toán bằng Microsoft Equation/
+hoặc MathType.
+
+\textbf{Chúc lớp mình vui khỏe, thành công} :) !
+
+\emph{\textbf{\ul{Câu 1}}}: (\emph{3,0 điểm})
+
+\begin{quote}
+Cho các ma trận thực: \[A = \begin{pmatrix} 1 & 1 & 2 \\ 1 & 0 & m \\ -3 & -5 & -7 \end{pmatrix}\],
+\[B = \begin{pmatrix} -1 & -4 & 2 \\ 5 & -9 & -1 \\ -3 & -6 & 0 \end{pmatrix}\],
+\[C = \begin{pmatrix} 3 & -2 & \lambda \\ 1 & 1 & -2 \\ 4 & -1 & -2 \end{pmatrix}\],
+
+với $m, \lambda$ là các tham số
+thực.
+\end{quote}
+
+a/ Tìm ma trận: $2C^T B - 5A$.
+
+b/ Tìm $\lambda$ để ma trận
+$C$ có hạng nhỏ nhất.
+
+c/ Với $m = 2$, tìm ma trận
+$X$ thỏa
+$XA = D + 3B$, với ma trận
+\[D = \begin{pmatrix} -4 & -1 & 0 \\ -1 & 1 & -5 \\ 8 & -3 & 1 \end{pmatrix}\].
+
+\emph{\textbf{\ul{Câu 2}}}: (\emph{3,0 điểm})
+
+Giải và biện luận hệ phương trình tuyến tính sau trên trường số thực
+$\mathbb{R}$:
+
+\[\begin{cases} x - my + m^2 z = m \\ mx - m^2 y + mz = 1 \\ mx + y - m^2 z = 1 \end{cases}\], với
+$m$ là tham số thực.
+
+\emph{\textbf{\ul{Câu 3}}}: (\emph{2,0 điểm})
+
+Trên không gian $\mathbb{R}^5$, cho
+tập hợp \[W = \left\{ (x_1; x_2; x_3; x_4; x_5) \mid \begin{matrix} x_4 = 7x_1 - 4x_2 \\ x_1 + 3x_3 - 5x_2 = 0 \end{matrix} \right\}\].
+
+Hỏi $W$ có phải là không
+gian véc tơ con của $\mathbb{R}^5$
+không? Vì sao?
+
+\emph{\textbf{\ul{Câu 4}}}: (\emph{2,0 điểm})
+
+Trên không gian $\mathbb{R}^4$, cho
+tập hợp $S = \{u_1, u_2, u_3, u_4\}$, với
+$u_1 = (0; 1; 3; 4)$,
+$u_2 = (1; 0; 2; 3)$,
+$u_3 = (-3; -2; 0; -5)$,
+$u_4 = (4; 3; -5; 0)$.
+
+a/ Hỏi tập hợp $S$ là độc
+lập tuyến tính hay phụ thuộc tuyến tính? Vì sao?
+
+\begin{quote}
+b/ Hãy tìm một biểu diễn tuyến tính của véc tơ
+$\lambda = 4\alpha - 3\beta$ theo các véc tơ
+$u_1, u_2, u_3, u_4$, trong đó
+$\alpha = (-10; -2; 15; -5)$ và
+$\beta = (-2; 4; 10; -2)$.
+
+-------- HẾT --------
+\end{quote}
+
+\textbf{Chương 3: KHÔNG GIAN VÉC TƠ (TIẾP THEO)}
+
+\textbf{5/ \ul{KHÔNG GIAN CON SINH BỞI MỘT TẬP HỢP}}
+
+Cho $(V, +, \bullet)$ là không gian
+tuyến tính tổng quát trên trường số \emph{F},
+
+và cho tập hợp $S = \{\alpha_1, \alpha_2, \dots, \alpha_m\}$ trên
+\emph{V}.
+
+Ta ký hiệu $\langle S \rangle = \{$tập hợp tất
+cả các THTT có từ \emph{S}\}
+
+$= \{ \alpha = c_1 \alpha_1 + c_2 \alpha_2 + \dots + c_m \alpha_m \mid c_1, c_2, \dots, c_m \in F; \alpha_1, \alpha_2, \dots, \alpha_m \in S \}$.
+
+Ta có $\langle S \rangle \le V$, nghĩa là ta có
+$\langle S \rangle$ là không gian véc tơ
+con (không gian tuyến tính con) của \emph{V}, sinh bởi tập hợp \emph{S},
+và thường viết là $\langle S \rangle$ is a
+sub-vector space that is spanned by \emph{S}.
+
+* \emph{\textbf{\ul{Ý nghĩa}}}:
+
+Trên \emph{V} có thể có nhiều không gian con khác nhau của \emph{V} chứa
+được tập hợp \emph{S}, nhưng
+$\langle S \rangle$ là không gian con nhỏ
+nhất, chứa được \emph{S}.
+
+\emph{S}
+
+\emph{V}
+
+Ta còn gọi \emph{S} là hệ sinh (tập sinh) ra không gian tuyến tính
+$\langle S \rangle$, và viết là \emph{S}
+spans $\langle S \rangle$.
+
+\textbf{6/ \ul{CƠ SỞ CỦA KHÔNG GIAN VÉC TƠ}}
+
+Cơ sở (basis) của một không gian véc tơ (không gian tuyến tính) là một
+hệ sinh (tập sinh), độc lập tuyến tính, của không gian tuyến tính đó.
+
+Cơ sở của không gian tuyến tính không phải là duy nhất, nghĩa là có vô
+số các cơ sở khác nhau của một không gian tuyến tính cho trước.
+
+Nói cách khác, cơ sở của một gian véc tơ là tập hợp chứa những véc tơ cơ
+bản nhất, cốt lõi nhất, để tạo ra một không gian véc tơ.
+
+* \emph{\textbf{\ul{Ý nghĩa}}}:
+
+Cho tập hợp $S = \{ \alpha_1, \alpha_2, \dots, \alpha_m \}$ là một cơ
+sở của không gian véc tơ \emph{V}.
+
+Lúc này, với mọi véc tơ
+$\alpha \in V$, ta luôn tìm được bộ
+số: $c_1, c_2, \dots, c_m$ sao cho
+
+$\alpha = c_1 \alpha_1 + c_2 \alpha_2 + \dots + c_m \alpha_m$
+
+nghĩa ta luôn biểu diễn được
+$\alpha$ theo cơ sở \emph{S};
+cho nên ta có thể phát sinh ra bất kỳ véc tơ nào trên \emph{V}, khi đã
+biết cơ sở \emph{S}. Vì vậy, về bản chất là khi biết cơ sở của một không
+gian tuyến tính nghĩa là ta đã kiểm soát được toàn bộ không gian tương
+ứng.
+
+\emph{\textbf{\ul{Lưu ý}}}:
+
+Số lượng véc tơ trong cơ sở chính là số chiều của không gian tương ứng.
+
+\textbf{* \ul{ĐỂ CHỨNG MINH MỘT TẬP HỢP CÓ PHẢI LÀ CƠ SỞ CỦA MỘT KHÔNG
+GIAN VÉC TƠ HAY KHÔNG}}
+
+Cho không gian tuyến tính
+$(V, +, \bullet)$ tổng quát trên
+\emph{F}.
+
+Để chứng minh tập hợp $S = \{\alpha_1, \alpha_2, \dots, \alpha_m\}$
+là một cơ sở của \emph{V}, ta làm như sau:
+
++ Ta lập luận \emph{S} là một hệ sinh ra \emph{V}.
+
++ Ta cần chứng tỏ \emph{S} là tập hợp ĐLTT.
+
+Từ đó suy ra \emph{S} là một cơ sở của \emph{V}.
+
+\ul{Ví dụ mẫu 8}: bài 3.12
+
+Bài \textbf{3. 12.} Trong không gian $\mathbb{R}^3$ cho hệ véc tơ $\{a_1, a_2, a_3\}$ với
+$a_1 = (1, 1, 1), \; a_2 = (1, 2, 3), \; a_3 = (2, 1, 4).$
+
+Cho biết hệ $S = \{ a_1, a_2, a_3 \}$ có là một
+cơ sở của $\mathbb{R}^3$ hay không?
+Tại sao?
+
+\ul{Giải}:
+
+Ta có $\mathbb{R}^3$ là không gian 3
+chiều trên $\mathbb{R}$, nghĩa là
+cơ sở của $\mathbb{R}^3$ là một hệ
+sinh chứa 3 véc tơ, độc lập tuyến tính.
+
+Mà tập hợp $\{ a_1, a_2, a_3 \}$ có sẵn 3
+véc tơ nên đây là một hệ sinh của
+$\mathbb{R}^3$; cho nên để kiểm chứng
+xem $\{ a_1, a_2, a_3 \}$ có là cơ sở của
+$\mathbb{R}^3$ hay không thì ta chỉ
+cần xét xem hệ $\{ a_1, a_2, a_3 \}$ có ĐLTT
+hay không.
+
+Ta lập ma trận
+
+\begin{quote}
+\[A_S = \begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix} = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 2 & 3 \\ 2 & 1 & 4 \end{pmatrix}\]
+
+Ta có
+
+$\det(A_S) = 1.2.4 + 1.3.2 + 1.1.1 - [1.2.2 + 1.1.4 + 1.3.1] = 4 \ne 0$
+
+Nên ta nói $\{ a_1, a_2, a_3 \}$ là ĐLTT;
+cho nên hệ $\{ a_1, a_2, a_3 \}$ là một cơ
+sở của $\mathbb{R}^3$.
+\end{quote}
+
+\textbf{* \ul{TÌM CƠ SỞ CHO KHÔNG GIAN KHI BIẾT TRƯỚC HỆ SINH (TẬP
+SINH)}}
+
+Cho $(V, +, \bullet)$ là một không gian
+véc tơ (không gian tuyến tính) tổng quát trên \emph{F},
+
+và cho tập hợp $S = \{\alpha_1, \alpha_2, \dots, \alpha_m\}$ trên
+\emph{V}.
+
+Gọi $W = \langle S \rangle$, nghĩa là \emph{S}
+là hệ sinh (tập sinh) của \emph{W} (i.e. \emph{S} spans \emph{W})
+
+Ta tìm cơ sở và xác định số chiều cho \emph{W} như sau:
+
+\emph{\textbf{\ul{TH1}}}:
+$m = 1$, nghĩa là
+$S = \{ \alpha_1 \}$
+
+Ta lập luận véc tơ $\alpha_1 \neq$véc
+tơ $O$, suy ra
+$S = \{ \alpha_1 \}$ vừa là hệ sinh, vừa là
+cơ sở của \emph{W}, và số chiều của \emph{W} là:
+
+$\dim_F W = 1$ (dim = dimension)
+
+\emph{\textbf{\ul{TH2}}}:
+$m = 2$, nghĩa là
+$S = \{ \alpha_1, \alpha_2 \}$
+
+Ta lập luận véc tơ $\alpha_1$
+không tỷ lệ với $\alpha_2$ theo
+tọa độ
+
+(Ví dụ:
+$\alpha_1 = (-3; 0; 1; 5; -6), \; \alpha_2 = (2; 1; -4; 8; 7)$,$\alpha_3 = (6; 0; -2; -10; 12)$.
+
+Ta có: $\frac{-3}{2} \neq \frac{0}{1} \neq \frac{1}{-4} \neq \frac{5}{8} \neq \frac{-6}{7} \Rightarrow \alpha_1$ không tỷ lệ với
+$\alpha_2$ theo tọa độ; nhưng
+$\alpha_3$ tỷ lệ với
+$\alpha_1$ do
+$\alpha_3 = -2\alpha_1$).
+
+Suy ra $S = \{\alpha_1, \alpha_2\}$ vừa là hệ sinh,
+vừa là cơ sở của \emph{W}, và số chiều của \emph{W} là:
+
+$\dim_F W = 2$.
+
+\emph{\textbf{\ul{TH3}}}:
+$m \ge 3$, nghĩa là
+$S = \{\alpha_1, \alpha_2, \dots, \alpha_m\}$
+
+Ta lập ma trận \[A_S = \begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \vdots \\ \alpha_m \end{pmatrix}\]
+
+\ul{TH3.1}: $A_S$ là một ma
+trận vuông
+
+Nếu $\det(A_S) \ne 0$ suy ra \emph{S} là
+một hệ sinh, ĐLTT nên \emph{S} cũng là một cơ sở của \emph{W}, và
+
+số chiều là $\dim_F W = m$.
+
+Nếu $\det(A_S) = 0$ ta chuyển qua
+TH3.2.
+
+\ul{TH3.2}: $A_S$ là một ma
+trận tùy ý, nghĩa là $A_S$
+là một ma trận vuông hay không vuông đều được.
+
+Từ $A_S$ bán chuẩn hóa
+(chuẩn hóa) tối đa các cột
+\[H = \begin{pmatrix} \gamma_1 \\ \gamma_2 \\ \vdots \\ \gamma_k \\ \text{O} \\ \vdots \\ \text{O} \end{pmatrix}\]
+
+\emph{k} dòng khác zero
+
+các dòng zero, có thể có hoặc không
+
+Suy ra tập hợp $a = \{\gamma_1, \gamma_2, \dots, \gamma_k\}$ là một
+cơ sở của \emph{W} và số chiều là
+$\dim_F W = k$.
+
+\ul{Ví dụ}: $A_S$bán chuẩn
+hóa (chuẩn hóa) tối đa các cột
+\[H = \begin{pmatrix} -1 & 0 & 2 & -3 & 4 & 0 & 1 \\ 0 & 2 & -5 & 1 & 1 & -3 & 2 \\ 0 & 0 & 0 & -2 & 1 & 0 & 8 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{pmatrix} = \begin{pmatrix} \gamma_1 \\ \gamma_2 \\ \gamma_3 \\ \text{O} \\ \text{O} \end{pmatrix}\]
+
+Suy ra
+\[ a = \{\gamma_1 = (-1; 0; 2; -3; 4; 0; 1), \gamma_2 = (0; 2; -5; 1; 1; -3; 2), \gamma_3 = (0; 0; 0; -2; 1; 0; 8)\} \]
+là một cơ sở
+của \emph{W}, và số chiều là
+$\dim_{\mathbb{R}} W = 3$.
+
+\ul{Bài tập}: Tìm cơ sở và xác định số chiều cho không gian \emph{W}
+trong các trường hợp sau:
+
+a/ $V = \mathbb{R}^3$,
+\[ S = \{a_1 = (1; -3; 2), a_2 = (0; 1; -4), a_3 = (-2; 3; 1)\} \]
+và
+$W = \langle S \rangle$.
+
+b/ $V = \mathbb{R}^4$,
+\[ S = \{a_1 = (1; 0; -1; 2), a_2 = (2; 0; 3; -1), a_3 = (-1; -2; 0; 2)\} \]
+và
+$W = \langle S \rangle$.
+
+c/ $V = \mathbb{R}^4$,
+\[ S = \{a_1 = (-1; 3; 2; -4), a_2 = (0; 0; 1; -1), a_3 = (1; 0; 1; 0), a_4 = (2; 3; -1; 4)\} \]
+và
+$W = \langle S \rangle$.
+
+d/ $V = \mathbb{R}^5$,
+\[ S = \{a_1 = (-1; 1; 0; -1; 1), a_2 = (1; 0; 0; 2; -1), a_3 = (-2; 1; 3; 0; -1)\} \]
+và
+$W = \langle S \rangle$.
+
+e/ $V = \mathbb{R}^5$,
+\[ S = \{a_1 = (-2; -3; 0; 0; 1), a_2 = (-1; 1; 1; 0; 0), a_3 = (2; -1; 4; 1; 0), a_4 = (-2; 1; -3; 0; 1)\} \]
+và
+$W = \langle S \rangle$
+
+\textbf{* \ul{TÌM HỆ SINH, CƠ SỞ VÀ XÁC ĐỊNH SỐ CHIỀU CHO KHÔNG GIAN PHỤ
+THUỘC THAM SỐ}}.
+
+\ul{Ví dụ mẫu}: Trên $V = \mathbb{R}^4$,
+cho $W = \{\alpha = (a - b + 2c; 2b - a - c; 3c + 2a; c + a - 3b) \mid a, b, c \in \mathbb{R}\}$
+
+a/ Chứng minh rằng $W \le V$.
+
+b/ Tìm hệ sinh, cơ sở và xác định số chiều cho \emph{W}.
+
+\ul{Giải}:
+
+Ta có $W = \{\alpha = (a - b + 2c; 2b - a - c; 3c + 2a; c + a - 3b) \mid a, b, c \in \mathbb{R}\}$
+
+$= \{\alpha = (a; -a; 2a; a) + (-b; 2b; 0b; -3b) + (2c; -c; 3c; c) \mid a, b, c \in \mathbb{R}\}$
+
+$= \{\alpha = a(1; -1; 2; 1) + b(-1; 2; 0; -3) + c(2; -1; 3; 1) \mid a, b, c \in \mathbb{R}\}$
+
+Đặt
+\[ \alpha_1 = (1; -1; 2; 1), \alpha_2 = (-1; 2; 0; -3), \alpha_3 = (2; -1; 3; 1) \]
+và gọi $S = \{\alpha_1, \alpha_2, \alpha_3\}$.
+
+Suy ra $W = \{ \alpha = a\alpha_1 + b\alpha_2 + c\alpha_3 \mid a, b, c \in \mathbb{R}; \alpha_1, \alpha_2, \alpha_3 \in S \}$
+
+$= \langle S \rangle$
+
+Mà $\langle S \rangle \le V = \mathbb{R}^4$ nên ta nói
+$W = \langle S \rangle \le V$.
+
+Ta có $W = \langle S \rangle$ nên
+$S = \{\alpha_1, \alpha_2, \alpha_3\}$ là một hệ sinh của
+\emph{W}.
+
+Tiếp theo tìm cơ sở cho \emph{W} như sau:
+
+Ta lập ma trận
+
+\begin{quote}
+\[A_S = \begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} 1 & -1 & 2 & 1 \\ -1 & 2 & 0 & -3 \\ 2 & -1 & 3 & 1 \end{pmatrix} \xrightarrow{\substack{(2) \to (2) + (1) \\ (3) \to (3) - 2(1)}} \begin{pmatrix} 1 & -1 & 2 & 1 \\ 0 & 1 & 2 & -2 \\ 0 & 1 & -1 & -1 \end{pmatrix}\]
+\end{quote}
+
+\[\xrightarrow{(3) \to (3) - (2)} \begin{pmatrix} 1 & -1 & 2 & 1 \\ 0 & 1 & 2 & -2 \\ 0 & 0 & -3 & 1 \end{pmatrix} = \begin{pmatrix} \gamma_1 \\ \gamma_2 \\ \gamma_3 \end{pmatrix}\]
+
+\ul{Cách 1}: Do ma trận kết quả có 3 dòng khác zero
+$r(A_S) = 3 =$số véc tơ trong
+\emph{S},
+
+Cho nên \emph{S} là một hệ sinh, ĐLTT, nên \emph{S} cũng là một cơ sở
+của \emph{W}, và số chiều là
+
+$\dim_{\mathbb{R}} W = 3$.
+
+\ul{Cách 2}: Ta có $a = \{ y_1 = (1; -1; 2; 1), y_2 = (0; 1; 2; -2), y_3 = (0; 0; -3; 1) \}$ là
+một cơ sở của \emph{W},
+
+\begin{quote}
+và số chiều là
+\end{quote}
+
+$\dim_{\mathbb{R}} W = 3$.
+
+\emph{\ul{Bài tập tương tự}}: Yêu cầu giống như ví dụ mẫu phần tìm hệ
+sinh, cơ sở và xác định số chiều cho không gian phụ thuộc tham số:
+
+a/ $V = \mathbb{R}^4$,
+\[ W = \{ \alpha = (-a + 2b + c; 4c + 5a; 2c - b + a; 2a - 3b - c) \mid a, b, c \in \mathbb{R} \}. \]
+
+b/ $V = \mathbb{R}^4$,
+\[ W = \{ \alpha = (3d + a - 2b - c; 2d - c + a; 3d - c + b + 2a; d - a + b) \mid a, b, c, d \in \mathbb{R} \}. \]
+
+c/ $V = \mathbb{R}^4$,
+\[ W = \{ \alpha = (d - e + 2a + b - 3c; 4e + d - 2c + a; e - 3d + c + 2b - a; 3e + 2d - a - b) \mid a, b, c, d, e \in \mathbb{R} \}. \]
+
+d/ $V = \mathbb{R}^5$,
+\[ W = \{ \alpha = (a - 2b + c; 2c - 3a + b; 4c + b - 2a; a - b + 3c; c - 2a - b) \mid a, b, c \in \mathbb{R} \}. \]
+
+e/ $V = \mathbb{R}^5$,
+\[ W = \{ \alpha = (a - b + 2c - d; c + a - 2b + 3d; 2c + d - a; a - 2b + c - 3d; c + d - a + b) \mid a, b, c, d \in \mathbb{R} \}. \]
+
+\textbf{* \ul{TÌM HỆ SINH, CƠ SỞ VÀ XÁC ĐỊNH SỐ CHIỀU CHO KHÔNG GIAN
+NGHIỆM CỦA HỆ PHƯƠNG TRÌNH TUYẾN TÍNH THUẦN NHẤT AX = O}}.
+
+Cho $(V, +, \bullet)$ là không gian
+tuyến tính tổng quát trên trường số
+$F = \mathbb{R}$,
+
+và gọi $W = \{ X \in \mathbb{R}^n \mid AX = O \}$.
+
+Ta sẽ chứng minh $W \le V$ và
+tìm hệ sinh, cơ sở, số chiều cho
+$W$ như sau:
+
++ Từ hệ phương trình thuần nhất
+$AX = O$, ta giải hệ pt này
+(nên dùng pp Gauss hoặc Gauss-Jordan), để tìm nghiệm.
+
++ Ta thay nghiệm tìm được vào
+$W$, và viết lại
+$W$ dưới dạng không gian
+phụ thuộc tham số.
+
++ Sau đó ta chứng tỏ $W \le V$
+và tìm hệ sinh, cơ sở, số chiều cho
+$W$ hoàn toàn giống như
+trường hợp tìm hệ sinh, cơ sở và xác định số chiều cho không gian phụ
+thuộc tham số đã nêu trên.
+
+\ul{Ví dụ mẫu 1}: Trên không gian tuyến tính
+$V = \mathbb{R}^5$, cho
+
+\[W = \left\{ X = (x_1; x_2; x_3; x_4; x_5) \in \mathbb{R}^5 \left| \begin{matrix} 2x_3 + 7x_5 - x_4 + x_1 + 3x_2 = 0 \\ x_2 + 3x_4 - x_5 + 2x_1 - x_3 = 0 \\ 5x_3 - 8x_4 - 3x_1 + 2x_2 + 12x_5 = 0 \\ 7x_4 - 9x_5 + 3x_1 - x_2 - 4x_3 = 0 \end{matrix} \right. \right\}\]
+
+a/ Chứng minh rằng $W \le V$.
+
+b/ Tìm hệ sinh, cơ sở và xác định số chiều cho
+$W$.
+
+\ul{Giải}:
+
+Từ điều kiện của \emph{W} ta viết lại hệ pt tuyến tính thuần nhất dưới
+dạng ma trận hóa như sau:
+
+\begin{align*}
+&\begin{pmatrix} 1 & 3 & 2 & -1 & 7 \mid 0 \\ 2 & 1 & -1 & 3 & -1 \mid 0 \\ -3 & 2 & 5 & -8 & 12 \mid 0 \\ 3 & -1 & -4 & 7 & -9 \mid 0 \end{pmatrix} \\
+&\xrightarrow{\substack{(2) \to (2) - 2(1) \\ (3) \to (3) + 3(1) \\ (4) \to (4) - 3(1)}}
+\begin{pmatrix} 1 & 3 & 2 & -1 & 7 \mid 0 \\ 0 & -5 & -5 & 5 & -15 \mid 0 \\ 0 & 11 & 11 & -11 & 33 \mid 0 \\ 0 & -10 & -10 & 10 & -30 \mid 0 \end{pmatrix} \\
+&\xrightarrow{\substack{(2) \to -\frac{1}{5}(2) \\ (3) \to (3) - 11(2)_{moi} \\ (4) \to (4) + 10(2)_{moi}}}
+\begin{pmatrix} 1 & 3 & 2 & -1 & 7 \mid 0 \\ 0 & 1 & 1 & -1 & 3 \mid 0 \\ 0 & 0 & 0 & 0 & 0 \mid 0 \\ 0 & 0 & 0 & 0 & 0 \mid 0 \end{pmatrix}
+\end{align*}
+
+Do cột 3,4,5, không bán chuẩn hóa được, nên hệ pt có vô số nghiệm như
+sau:
+
+Đặt \[\begin{cases} x_1 = a \\ x_4 = b, \forall a, b, c \in \mathbb{R} \\ x_5 = c \end{cases}\].
+
+Ta có hệ pt lúc này:
+
+\begin{align*}
+\begin{cases} x_1 + 3x_2 + 2x_3 - x_4 + 7x_5 = 0 \\ x_2 + x_3 - x_4 + 3x_5 = 0 \end{cases} 
+&\Rightarrow \begin{cases} x_1 = -3(-a+b-3c) - 2a + b - 7c \\ x_2 = -a + b - 3c \end{cases} \\
+&\Rightarrow \begin{cases} x_1 = a - 2b + 2c \\ x_2 = -a + b - 3c \end{cases}
+\end{align*}
+
+Thay vào \emph{W} ta được:
+
+$W = \{ X = (x_1; x_2; x_3; x_4; x_5) = (a - 2b + 2c; -a + b - 3c; a; b; c) \mid a, b, c \in \mathbb{R} \}$
+
+$= \{ X = (a; -a; a; 0a; 0a) + (-2b; b; 0b; b; 0b) + (2c; -3c; 0c; 0c; c) \mid a, b, c \in \mathbb{R} \}$
+
+$= \{ X = a(1; -1; 1; 0; 0) + b(-2; 1; 0; 1; 0) + c(2; -3; 0; 0; 1) \mid a, b, c \in \mathbb{R} \}$.
+
+Đặt
+\[ \alpha_1 = (1; -1; 1; 0; 0), \alpha_2 = (-2; 1; 0; 1; 0), \alpha_3 = (2; -3; 0; 0; 1) \]
+và gọi $S = \{ \alpha_1, \alpha_2, \alpha_3 \}$.
+
+$\Rightarrow W = \{ X = a\alpha_1 + b\alpha_2 + c\alpha_3 \mid a, b, c \in \mathbb{R}; \alpha_1, \alpha_2, \alpha_3 \in S \}$
+
+$= \langle S \rangle$.
+
+Mà $\langle S \rangle \le V$ nên
+$W = \langle S \rangle \le V$.
+
+Ta có $W = \langle S \rangle$ nên
+$S = \{ \alpha_1, \alpha_2, \alpha_3 \}$ là một hệ sinh của
+\emph{W}.
+
+Tiếp theo, ta tìm cơ sở và số chiều cho \emph{W} như sau:
+
+Lập ma trận:
+
+\ul{Cách 1}: Do ma trận đáp số có 3 dòng khác zero nên ta nói
+$r(A_S) = 3 =$số véc tơ trong
+\emph{S}, nên ta nói \emph{S} vừa là hệ sinh, vừa ĐLTT nên \emph{S} cũng
+là 1 cơ sở của \emph{W}, và số chiều là
+$\dim_{\mathbb{R}} W = 3$.
+
+\ul{Cách 2}: Ta có $a = \{ \gamma_1 = (1; -1; 1; 0; 0), \gamma_2 = (0; -2; 0; 1; 1), \gamma_3 = (0; 0; -4; -1; 1) \}$ là
+1 cơ sở của \emph{W}, và số chiều là
+$\dim_{\mathbb{R}} W = 3$.
+
+\emph{\ul{Bài tập tương tự}}: Yêu cầu như Ví dụ mẫu 1
+
+a/ \[V = \mathbb{R}^4, W = \left\{ X = (x_1; x_2; x_3; x_4) \left| \begin{matrix} 2x_2 - x_1 + x_3 = 0 \\ x_1 - 3x_2 + 2x_4 = 0 \\ 2x_1 - 3x_2 - x_4 = 0 \end{matrix} \right. \right\}\].
+
+b/ \[V = \mathbb{R}^4, W = \left\{ X = (x_1; x_2; x_3; x_4) \left| \begin{matrix} x_2 + x_1 + 2x_3 = 0 \\ 2x_2 - x_1 - x_4 = 0 \end{matrix} \right. \right\}\].
+
+c/ \[V = \mathbb{R}^5, W = \left\{ X = (x_1; x_2; x_3; x_4; x_5) \left| \begin{matrix} x_5 - x_1 + x_2 + 2x_3 = 0 \\ 4x_5 - 2x_1 - x_2 + 2x_3 = 0 \\ x_1 - 3x_5 + x_2 - 2x_4 = 0 \end{matrix} \right. \right\}\].
+
+d/ \[V = \mathbb{R}^5, W = \left\{ X = (x_1; x_2; x_3; x_4; x_5) \left| \begin{matrix} x_5 - x_4 - x_1 + 2x_2 = 0 \\ 3x_5 - x_1 + 4x_2 - x_3 = 0 \\ x_1 + x_2 - 2x_5 = 0 \end{matrix} \right. \right\}\].
+
+e/ \[V = \mathbb{R}^5, W = \left\{ X = (x_1; x_2; x_3; x_4; x_5) \left| \begin{matrix} 2x_2 - x_5 + x_1 - x_3 = 0 \\ x_4 + x_1 + 3x_5 = 0 \\ 2x_1 - x_2 - 3x_5 + x_4 = 0 \\ 2x_3 - x_2 - 6x_5 + x_1 = 0 \end{matrix} \right. \right\}\].
+
+\textbf{7/ \ul{TỌA ĐỘ VÉC TƠ THEO CƠ SỞ}}:
+
+Cho $(V, +, \bullet)$ là không gian
+tuyến tính tổng quát trên trường số \emph{F}.
+
+Gọi $S = \{ \alpha_1, \alpha_2, \dots, \alpha_m \}$ là một cơ sở của
+\emph{V}.
+
+Cho trước véc tơ $\alpha \in V$. Lúc
+này, luôn tồn tại bộ số
+$c_1, c_2, \dots, c_m \in F$ sao cho:
+
+$\alpha = c_1\alpha_1 + c_2\alpha_2 + \dots + c_m\alpha_m$
+
+(ở đây các ẩn số là $c_1, c_2, \dots, c_m$;
+và ta cần giải hệ pt để tìm bộ nghiệm này).
+
+Khi đó ta viết:
+
+\[[\alpha]_S = \begin{bmatrix} c_1 \\ c_2 \\ \vdots \\ c_m \end{bmatrix} = \begin{pmatrix} c_1 \\ c_2 \\ \vdots \\ c_m \end{pmatrix} =\] đây là tọa độ của véc
+tơ $\alpha$ theo cơ sở
+\emph{S}.
+
+\ul{Ví dụ mẫu 2}: Trên
+$V = \mathbb{R}^3$, cho hệ
+$S = \{ a_1 = (-2; 4; 3), a_2 = (-4; 5; 1), a_3 = (1; 1; 2) \}$.
+
+a/ Chứng minh rằng \emph{S} là một cơ sở của
+$\mathbb{R}^3$.
+
+b/ Cho véc tơ $\alpha = (7; -8; 1) \in \mathbb{R}^3$. Tìm
+$[\alpha]_s =?$
+
+c/ Cho véc tơ $\beta \in \mathbb{R}^3$ thỏa
+\[[\beta]_s = \begin{bmatrix} -4 \\ 1 \\ 3 \end{bmatrix}\]. Tìm
+$\beta =?$
+
+d/ Cho véc tơ $\gamma \in \mathbb{R}^3$ thỏa
+\[[\gamma]_s = \begin{bmatrix} 2 \\ -5 \\ 7 \end{bmatrix}\]. Tìm
+$\gamma =?$
+
+\ul{Giải}:
+
+a/ Do $\mathbb{R}^3$ là không gian
+tuyến tính 3 chiều trên trường số thực
+$\mathbb{R}$, nên mỗi cơ sở của
+$\mathbb{R}^3$ là một hệ sinh, có 3
+véc tơ, ĐLTT. Mà tập hợp \emph{S} đã có 3 véc tơ nên \emph{S} là 1 hệ
+sinh của $\mathbb{R}^3$. Cho nên để
+chứng tỏ \emph{S} là một cơ sở của
+$\mathbb{R}^3$ thì ta chỉ cần chứng
+tỏ \emph{S} là ĐLTT.
+
+Ta lập ma trận
+
+\begin{quote}
+\[A_S = \begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix} = \begin{pmatrix} -2 & 4 & 3 \\ -4 & 5 & 1 \\ 1 & 1 & 2 \end{pmatrix}\]
+\end{quote}
+
+Ta có
+
+\begin{quote}
+$\det(A_S) = (-2).5.2 + 4.1.1 + 3.(-4).1 - [3.5.1 + 4.(-4).2 + (-2).1.1] = -9 \ne 0$
+\end{quote}
+
+$\Rightarrow S$ là một hệ sinh ĐLTT,
+nên \emph{S} là một cơ sở của
+$\mathbb{R}^3$.
+
+b/ Cho véc tơ $\alpha = (7; -8; 1) \in \mathbb{R}^3$. Tìm
+$[\alpha]_s =?$
+
+Ta cần tìm $c_1, c_2, c_3 \in \mathbb{R}$ sao cho:
+$\alpha = c_1a_1 + c_2a_2 + c_3a_3$
+
+\begin{align*}
+(7, -8, 1) &= c_1(-2, 4, 3) + c_2(-4, 5, 1) + c_3(1, 1, 2) \\
+&\Leftrightarrow \begin{cases} -2c_1 - 4c_2 + c_3 = 7 \\ 4c_1 + 5c_2 + c_3 = -8 \\ 3c_1 + c_2 + 2c_3 = 1 \end{cases} \\
+&\Leftrightarrow \begin{cases} c_1 = 2 \\ c_2 = -3 \\ c_3 = -1 \end{cases}
+\end{align*}
+
+Như vậy, ta có:
+
+\begin{quote}
+\[[\alpha]_S = \begin{pmatrix} c_1 \\ c_2 \\ c_3 \end{pmatrix} = \begin{pmatrix} 2 \\ -3 \\ -1 \end{pmatrix}\]
+\end{quote}
+
+c/ Cho véc tơ $\beta \in \mathbb{R}^3$ thỏa
+\[[\beta]_s = \begin{bmatrix} -4 \\ 1 \\ 3 \end{bmatrix}\]. Tìm
+$\beta =?$
+
+Tìm $\beta = -4a_1 + 1a_2 + 3a_3 = -4(-2; 4; 3) + (-4; 5; 1) + 3(1; 1; 2) = (7; -8; -5)$.
+
+d/ Cho véc tơ $\gamma \in \mathbb{R}^3$ thỏa
+\[[\gamma]_s = \begin{bmatrix} 2 \\ -5 \\ 7 \end{bmatrix}\]. Tìm
+$\gamma =?$.
+
+Tìm $\gamma = 2a_1 - 5a_2 + 7a_3 = 2(-2; 4; 3) - 5(-4; 5; 1) + 7(1; 1; 2) = (23; -10; 15)$.
+
+* \emph{\textbf{\ul{Lưu ý}}}: Trên
+$V = \mathbb{R}^n$, luôn có cơ sở chính
+tắc
+
+\begin{quote}
+$\beta_0 = \{e_1 = (1, 0, \dots, 0), e_2 = (0, 1, 0, \dots, 0), \dots, e_n = (0, 0, \dots, 1)\}$
+\end{quote}
+
+Với mọi véc tơ $\alpha = (x_1; x_2; ...; x_n) \in \mathbb{R}^n$ thì ta
+có
+
+\[[\alpha]_{\beta_0} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}\]
+
+(lấy tọa độ của $\alpha$ viết
+thành 1 cột mà ta không cần phải giải hệ pt để tìm các số
+
+$c_1, c_2, ..., c_n$).
+
+\ul{Ví dụ}: Trên $V = \mathbb{R}^3$, ta
+luôn có cơ sở chính tắc là
+
+$\beta_0 = \{e_1 = (1, 0, 0), e_2 = (0, 1, 0), e_3 = (0, 0, 1)\}$
+
+Thì với $\alpha = (7; -8; 1) \in \mathbb{R}^3$, ta có
+\[[\alpha]_{\beta_0} = \begin{bmatrix} 7 \\ -8 \\ 1 \end{bmatrix}\]
+
+$\lambda = (0; 2; -5) \in \mathbb{R}^3$, ta có
+\[[\lambda]_{\beta_0} = \begin{bmatrix} 0 \\ 2 \\ -5 \end{bmatrix}\]
+
+\ul{Ví dụ mẫu 3}: bài 3.18
+
+Bài 3.18. Hãy tìm tọa độ của véc tơ $x = (8, 8, 19, 19)$
+trong cơ sở dưới đây của không gian tuyến tính $\mathbb{R}^4$:
+$a_1 = (1, 1, 2, 3);\; a_2 = (2, 1, 3, 4);$
+$a_3 = (2, 3, -2, 1);\; a_4 = (1, 3, 3, 1).$
+
+\ul{Giải}:
+
+Do cơ sở của $\mathbb{R}^4$ có 4 véc
+tơ $a_1, a_2, a_3, a_4$ nên ta cần tìm 4
+số $c_1, c_2, c_3, c_4 \in \mathbb{R}$ sao cho
+
+$x = c_1a_1 + c_2a_2 + c_3a_3 + c_4a_4$
+
+$\Leftrightarrow (8, 8, 19, 19) = c_1(1, 1, 2, 3) + c_2(2, 1, 3, 4) + c_3(2, 3, -2, 1) + c_4(1, 3, 3, 1)$
+
+\[\Leftrightarrow \begin{cases} c_1 + 2c_2 + 2c_3 + c_4 = 8 \\ c_1 + c_2 + 3c_3 + 3c_4 = 8 \\ 2c_1 + 3c_2 - 2c_3 + 3c_4 = 19 \\ 3c_1 + 4c_2 + c_3 + c_4 = 19 \end{cases} \Leftrightarrow \begin{cases} c_1 = \frac{92}{35} \\ c_2 = \frac{89}{35} \\ c_3 = -\frac{23}{35} \\ c_4 = \frac{8}{5} \end{cases}\]
+
+Ta có:
+
+\begin{quote}
+\[[x]_S = \begin{pmatrix} \frac{92}{35} \\ \frac{89}{35} \\ -\frac{23}{35} \\ \frac{8}{5} \end{pmatrix}\]
+\end{quote}
+
+\ul{Ví dụ mẫu 4}: bài 3.20
+
+Bài 3.20. Trong không gian tuyến tính $\mathbb{R}^4$ cho $M$ là
+không gian con hai chiều có cơ sở là $\{u_1, u_2\}$ với
+$u_1 = (2, 1, -1, 1),\quad u_2 = (1, 2, 3, -1).$
+Cho các phần tử $u = (0, 1, 1, 3),\; v = (1, 1, 1, -1)$. Hãy
+xác định số thực $\lambda$ sao cho $u - \lambda v \in M.$
+
+\ul{Giải}:
+
+Gọi $S = \{u_1 = (2; 1; -1; 1), u_2 = (1; 2; 3; -1)\}$ là cơ sở của
+không gian $M = \langle S \rangle$
+
+Tìm số thực $\lambda$ sao cho
+$(u - \lambda v) \in M$.
+
+Yêu cầu đề bài tương đương tìm số thực
+$\lambda$ sao cho
+
+$u - \lambda v = c_1u_1 + c_2u_2$ có nghiệm
+
+$\Leftrightarrow (0, 1, 1, 3) - \lambda(1, 1, 1, -1) = c_1(2, 1, -1, 1) + c_2(1, 2, 3, -1)$
+
+$\Leftrightarrow (-\lambda, 1 - \lambda, 1 - \lambda, 3 + \lambda) = (2c_1 + c_2, c_1 + 2c_2, -c_1 + 3c_2, c_1 - c_2)$
+
+\[\Leftrightarrow \begin{cases} 2c_1 + c_2 = -\lambda \\ c_1 + 2c_2 = 1 - \lambda \\ -c_1 + 3c_2 = 1 - \lambda \\ c_1 - c_2 = 3 + \lambda \end{cases}\]
+
+Viết lại hệ pt dưới dạng ma trận hóa ta được:
+
+\begin{align*}
+&\begin{pmatrix} 2 & 1 \mid -\lambda \\ 1 & 2 \mid 1 - \lambda \\ -1 & 3 \mid 1 - \lambda \\ 1 & -1 \mid 3 + \lambda \end{pmatrix} \\
+&\xrightarrow{\substack{(2) \to 2(2) - (1) \\ (3) \to 2(3) + (1) \\ (4) \to 2(4) - (1)}} \begin{pmatrix} 2 & 1 \mid -\lambda \\ 0 & 3 \mid 2 - 2\lambda \\ 0 & 7 \mid 2 - 3\lambda \\ 0 & -3 \mid 6 + 3\lambda \end{pmatrix} \\
+&\xrightarrow{\substack{(3) \to 3(3) - 7(2) \\ (4) \to (4) + (2)}} \begin{pmatrix} 2 & 1 \mid -\lambda \\ 0 & 3 \mid 2 - 2\lambda \\ 0 & 0 \mid -8 - \lambda \\ 0 & 0 \mid 8 + \lambda \end{pmatrix}
+\end{align*}
+
+Để hệ có nghiệm thì dòng (3) và dòng (4) phải thỏa dạng
+\[\begin{pmatrix} 0 & 0 | 0 \\ 0 & 0 | 0 \end{pmatrix}\] nghĩa là ta có
+
+\[\begin{cases} 16 + 4\lambda = 0 \\ 36 + 9\lambda = 0 \end{cases} \Leftrightarrow \lambda = -4\]
+
+Đáp số: $\lambda = -4$ là giá trị
+cần tìm.
+
+\ul{Ví dụ mẫu 5}: bài 3.24 trang 5
+
+Bài 3.24. Trong không gian tuyến tính $\mathbb{R}^4$ cho không
+gian con
+\[ M = \{(x_1, x_2, x_3, x_4) \mid 2x_1 - x_2 - x_3 + 4x_4 = 0\} \]
+và phần tử $w \in M$ với $w = (1, 5, 1, 1)$. Hãy xác định
+một cơ sở và số chiều của $M$ và cho biết tọa độ của
+$w$ trên cơ sở được đưa ra.
+
+\ul{Giải}:
+
+Từ điều kiện của \emph{M} ta có hệ pt thuần nhất:
+
+$2x_1 - x_2 - x_3 + 4x_4 = 0$
+
+Viết hệ dưới dạng ma trận hóa ta được:
+
+$(2 \quad -1 \quad -1 \quad 4 \mid 0)$
+
+Do cột 2, 3, 4 không bán chuẩn hóa được nên hệ có vô số nghiệm như sau:
+
+Đặt \[\begin{cases} x_2 = 2a \\ x_3 = 2b, \forall a,b,c \in \mathbb{R} \\ x_4 = c \end{cases}\].
+
+Ta có $2x_1 - x_2 - x_3 + 4x_4 = 0 \Rightarrow x_1 = a + b - 2c$
+
+$\Rightarrow M = \{(x_1; x_2; x_3; x_4) = (a + b - 2c; 2a; 2b; c) | a,b,c \in \mathbb{R}\}$
+
+$= \{ \alpha = (a; 2a; 0a; 0a) + (b; 0b; 2b; 0b) + (-2c; 0c; 0c; c) | a,b,c \in \mathbb{R} \}$
+
+$= \{ \alpha = a(1; 2; 0; 0) + b(1; 0; 2; 0) + c(-2; 0; 0; 1) | a,b,c \in \mathbb{R} \}$
+
+Đặt
+\[ a_1 = (1; 2; 0; 0), a_2 = (1; 0; 2; 0), a_3 = (-2; 0; 0; 1) \]
+và gọi $S = \{ \alpha_1, \alpha_2, \alpha_3 \}$
+
+$\Rightarrow M = \{ \alpha = a\alpha_1 + b\alpha_2 + c\alpha_3 \mid a, b, c \in \mathbb{R}; \alpha_1, \alpha_2, \alpha_3 \in S \}$
+
+$= \langle S \rangle$
+
+Cho nên $M = \langle S \rangle$ nên
+$S = \{ \alpha_1, \alpha_2, \alpha_3 \}$ là một hệ sinh của
+\emph{M}.
+
+Tiếp theo, ta tìm cơ sở và số chiều cho \emph{M} như sau:
+
+Lập ma trận
+
+\[A_S = \begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix} 1 & 2 & 0 & 0 \\ 1 & 0 & 2 & 0 \\ -2 & 0 & 0 & 1 \end{pmatrix} \xrightarrow{\substack{(2) \to (2) - (1) \\ (3) \to (3) + 2(1)}} \begin{pmatrix} 1 & 2 & 0 & 0 \\ 0 & -2 & 2 & 0 \\ 0 & 4 & 0 & 1 \end{pmatrix} = \begin{pmatrix} \gamma_1 \\ \gamma_2 \\ \gamma_3 \end{pmatrix}\]
+
+Ta có: $a = \{ \gamma_1 = (1; 2; 0; 0), \gamma_2 = (0; -2; 2; 0), \gamma_3 = (0; 0; 4; 1) \}$ là một cơ sở
+của \emph{M}, và số chiều là:
+
+$\dim_{\mathbb{R}} M = 3$.
+
+Tìm tọa độ của $w = (1; 5; 1; 1)$ theo
+cơ sở \emph{a} của \emph{M} vừa tìm được.
+
+Ta tìm $c_1, c_2, c_3 \in \mathbb{R}$ sao cho
+$w = c_1 \gamma_1 + c_2 \gamma_2 + c_3 \gamma_3$
+
+$\Leftrightarrow (1, 5, 1, 1) = c_1(1, 2, 0, 0) + c_2(0, -2, 2, 0) + c_3(0, 0, 4, 1)$
+
+\[\Leftrightarrow \begin{cases} c_1 = 1 \\ 2c_1 - 2c_2 = 5 \\ 2c_2 + 4c_3 = 1 \\ c_3 = 1 \end{cases} \Rightarrow \begin{cases} c_1 = 1 \\ c_2 = -\frac{3}{2} \\ c_3 = 1 \end{cases}\]
+
+Vậy, \[[w]_a = \begin{bmatrix} c_1 \\ c_2 \\ c_3 \end{bmatrix} = \begin{bmatrix} 1 \\ -3/2 \\ 1 \end{bmatrix}\].
+
+\end{document}

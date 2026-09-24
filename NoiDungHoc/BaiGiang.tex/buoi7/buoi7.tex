@@ -1,0 +1,731 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+\title{Buổi 07 -- Ngày 06-09-2026 -- môn Đại số tuyến tính -- lớp MA003.F32.LT.CNTT}
+\date{}
+\author{}
+
+\begin{document}
+\maketitle
+
+\section*{8/ MA TRẬN CHUYỂN CƠ SỞ}
+
+Cho $(V,+,\cdot)$ là không gian tuyến tính tổng quát trên $F=\R$
+
+và cho $a=\{a_1,a_2,\ldots,a_n\}$ là một cơ sở của $V$;
+
+$b=\{b_1,b_2,\ldots,b_n\}$ là một cơ sở của $V$.
+
+Ta lấy tọa độ của các véc tơ trong $b$ biểu diễn theo cơ sở $a$, cụ thể như sau:
+
+$[b_1]_a$; $[b_2]_a$; \ldots; $[b_n]_a$.
+
+(ta phải giải $n$ hệ pt, mỗi hệ gồm $n$ pt và $n$ ẩn số)
+
+Ta lập ma trận $P=T=T_{a\to b}=T_{ab}=\big([b_1]_a \ [b_2]_a \ \cdots \ [b_n]_a\big)$ ma trận vuông cấp $n$.
+
+= ma trận chuyển cơ sở từ $a$ sang $b$.
+
+\medskip
+\noindent\textbf{\textit{* Tính chất}}:
+
+Cho $a=\{a_1,a_2,\ldots,a_n\}$; $b=\{b_1,b_2,\ldots,b_n\}$; $\varsigma=c=\{c_1,c_2,\ldots,c_n\}$ là các cơ sở của không gian tuyến tính $V$. Ta có một số tính chất sau:
+
+i/ $T_{a\to a}=T_{b\to b}=T_{\varsigma\to\varsigma}=I_n$.
+
+ii/ $T_{b\to a}=T_{ba}=(T_{ab})^{-1}=(T_{a\to b})^{-1}$.
+
+iii/ $T_{a\to b}=T_{a\to c}\cdot T_{c\to b}$
+
+\hfill khó tìm \hfill dễ tìm
+
+Ta thường chọn $c=\beta_0$ cơ sở chính tắc của không gian $V$; khi đó ta viết
+
+\[
+T_{a\to b}=T_{a\to \beta_0}\cdot T_{\beta_0\to b}=(T_{\beta_0\to a})^{-1}\cdot T_{\beta_0\to b}
+\]
+
+\section*{9/ CÔNG THỨC ĐỔI TỌA ĐỘ}
+
+Ta có
+\[
+[\alpha]_a=T_{a\to b}\cdot[\alpha]_b=T_{a\to c}\cdot[\alpha]_c=T_{a\to\beta_0}\cdot[\alpha]_{\beta_0}=T_{a\to d}\cdot[\alpha]_d
+\]
+
+\noindent\rule{\linewidth}{0.4pt}
+
+\noindent\underline{Ví dụ mẫu 6}: bài 3.31
+
+\medskip
+\noindent\textbf{Bài 3.31.} Trong không gian tuyến tính $\R^3$ cho hai hệ cơ sở $(a)=\{a_1,a_2,a_3\}$ và $(b)=\{b_1,b_2,b_3\}$ với
+\[
+a_1=(2,-1,3),\ a_2=(1,1,2),\ a_3=(2,1,4),
+\]
+\[
+b_1=(1,2,3),\ b_2=(3,1,-2),\ b_3=(-1,1,2).
+\]
+Hãy tính ma trận chuyển cơ sở từ hệ $(a)$ sang hệ $(b)$.
+
+\medskip
+\noindent\underline{Giải}:
+
+\noindent\underline{Cách 1}: Dùng định nghĩa, ta có:
+\[
+T_{a\to b}=T_{ab}=\big([b_1]_a \ \ [b_2]_a \ \ [b_3]_a\big)
+\]
+
+Ta tìm $[b_1]_a$ như sau
+
+Ta tìm $c_1,c_2,c_3\in\R$ sao cho $b_1=c_1a_1+c_2a_2+c_3a_3$
+
+\[
+\Leftrightarrow (1,2,3)=c_1(2,-1,3)+c_2(1,1,2)+c_3(2,1,4)
+\]
+\[
+\Leftrightarrow
+\begin{cases}
+2c_1+c_2+2c_3=1\\
+-c_1+c_2+c_3=2\\
+3c_1+2c_2+4c_3=3
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+c_1=-1\\
+c_2=-1\\
+c_3=2
+\end{cases}
+\]
+
+Ta tìm $[b_2]_a$ như sau
+
+Ta tìm $c_1,c_2,c_3\in\R$ sao cho $b_2=c_1a_1+c_2a_2+c_3a_3$
+
+\[
+\Leftrightarrow (3,1,-2)=c_1(2,-1,3)+c_2(1,1,2)+c_3(2,1,4)
+\]
+\[
+\Leftrightarrow
+\begin{cases}
+2c_1+c_2+2c_3=3\\
+-c_1+c_2+c_3=1\\
+3c_1+2c_2+4c_3=-2
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+c_1=8\\
+c_2=31\\
+c_3=-22
+\end{cases}
+\]
+
+Ta tìm $[b_3]_a$ như sau
+
+Ta tìm $c_1,c_2,c_3\in\R$ sao cho $b_3=c_1a_1+c_2a_2+c_3a_3$
+
+\[
+\Leftrightarrow (-1,1,2)=c_1(2,-1,3)+c_2(1,1,2)+c_3(2,1,4)
+\]
+\[
+\Leftrightarrow
+\begin{cases}
+2c_1+c_2+2c_3=-1\\
+-c_1+c_2+c_3=1\\
+3c_1+2c_2+4c_3=2
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+c_1=-4\\
+c_2=-13\\
+c_3=10
+\end{cases}
+\]
+
+Ta có ma trận chuyển cơ sở cần tìm là:
+\[
+T_{ab}=\big([b_1]_a \ \ [b_2]_a \ \ [b_3]_a\big)=
+\begin{pmatrix}
+-1 & 8 & -4\\
+-1 & 31 & -13\\
+2 & -22 & 10
+\end{pmatrix}
+\]
+
+\noindent\underline{Cách 2}: Ta có: $T_{ab}=T_{a\to b}=T_{a\to\beta_0}\cdot T_{\beta_0\to b}$
+
+Ta có: $T_{\beta_0\to a}=\big([a_1]_{\beta_0}\ \ [a_2]_{\beta_0}\ \ [a_3]_{\beta_0}\big)=
+\begin{pmatrix}
+2 & 1 & 2\\
+-1 & 1 & 1\\
+3 & 2 & 4
+\end{pmatrix}$
+
+và $T_{\beta_0\to b}=\big([b_1]_{\beta_0}\ \ [b_2]_{\beta_0}\ \ [b_3]_{\beta_0}\big)=
+\begin{pmatrix}
+1 & 3 & -1\\
+2 & 1 & 1\\
+3 & -2 & 2
+\end{pmatrix}$
+
+\begin{align*}
+\Rightarrow T_{ab}=T_{a\to b} &=
+\begin{pmatrix}
+2 & 1 & 2\\
+-1 & 1 & 1\\
+3 & 2 & 4
+\end{pmatrix}^{-1}
+\cdot
+\begin{pmatrix}
+1 & 3 & -1\\
+2 & 1 & 1\\
+3 & -2 & 2
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+2 & 0 & -1\\
+7 & 2 & -4\\
+-5 & -1 & 3
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+1 & 3 & -1\\
+2 & 1 & 1\\
+3 & -2 & 2
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1 & 8 & -4\\
+-1 & 31 & -13\\
+2 & -22 & 10
+\end{pmatrix}
+\end{align*}
+
+\medskip
+\noindent\underline{Ví dụ mẫu 7}: bài 3.29
+
+\medskip
+\noindent\textbf{Bài 3.29.} Trong không gian tuyến tính ba chiều $U$ cho hai hệ cơ sở $(a)$ và $(b)$ với ma trận chuyển cơ sở từ hệ $(a)$ sang hệ $(b)$ là
+\[
+T=\begin{pmatrix}4 & 2 & 1\\ 1 & -2 & 3\\ 3 & 3 & 4\end{pmatrix}.
+\]
+Hãy tính ma trận chuyển cơ sở từ hệ $(b)$ sang hệ $(a)$.
+
+\medskip
+\noindent\underline{Giải}:
+
+Ta có ma trận chuyển cơ sở từ $a$ sang $b$ là:
+\[
+T_{ab}=\begin{pmatrix}4 & 2 & 1\\ 1 & -2 & 3\\ 3 & 3 & 4\end{pmatrix}
+\]
+
+Nên ma trận chuyển cơ sở từ $b$ sang $a$ là:
+\[
+T_{ba}=(T_{ab})^{-1}=\begin{pmatrix}4 & 2 & 1\\ 1 & -2 & 3\\ 3 & 3 & 4\end{pmatrix}^{-1}
+=\begin{pmatrix}17/49 & 5/49 & -8/49\\ -5/49 & -13/49 & 11/49\\ -9/49 & 6/49 & 10/49\end{pmatrix}
+=\frac{1}{49}\begin{pmatrix}17 & 5 & -8\\ -5 & -13 & 11\\ -9 & 6 & 10\end{pmatrix}
+\]
+
+\medskip
+\noindent\textit{\underline{Bài tập tương tự}}: bài 3.28; 3.30; 3.32; 3.33
+
+\medskip
+\noindent\textbf{Bài 3.28.} Trong không gian tuyến tính ba chiều $U$ cho hai hệ cơ sở $(a)$ và $(b)$ với ma trận chuyển cơ sở từ hệ $(a)$ sang hệ $(b)$ là
+\[
+T=\begin{pmatrix}1 & 2 & -4\\ 2 & 5 & 3\\ 3 & 2 & 1\end{pmatrix}.
+\]
+Cho biết phần tử $x$ có tọa độ trong cơ sở thứ nhất $(a)$ là $x_a=(1,4,-2)$. Hãy tính tọa độ $x_b$ của phần tử $x$ trong cơ sở thứ hai $(b)$.
+
+\medskip
+\noindent\textbf{Bài 3.30.} Trong không gian tuyến tính ba chiều $U$ cho hai hệ cơ sở $(a)=\{a_1,a_2,a_3\}$ và $(b)=\{b_1,b_2,b_3\}$ với
+\[
+b_1=2a_1+3a_2-a_3,\quad b_2=a_1+4a_2+2a_3,\quad b_3=3a_1-a_2+a_3.
+\]
+Hãy tính ma trận chuyển cơ sở từ hệ $(b)$ sang hệ $(a)$.
+
+\medskip
+\noindent\textbf{Bài 3.32.} Trong không gian tuyến tính ba chiều $U$ cho ba hệ cơ sở $(e)$, $(a)$ và $(b)$. Cho biết ma trận chuyển cơ sở từ cơ sở $(e)$ sang cơ sở $(a)$ là
+\[
+T_{ea}=\begin{pmatrix}2 & -1 & 1\\ 2 & 1 & 2\\ 3 & 1 & 4\end{pmatrix}
+\]
+và ma trận chuyển cơ sở từ cơ sở $(e)$ sang cơ sở $(b)$ là
+\[
+T_{eb}=\begin{pmatrix}1 & 1 & 1\\ -2 & 3 & 1\\ 2 & 1 & -2\end{pmatrix}.
+\]
+Hãy tính ma trận chuyển cơ sở từ cơ sở $(a)$ sang cơ sở $(b)$.
+
+\medskip
+\noindent\textbf{Bài 3.33.} Trong không gian tuyến tính $\R^3$ cho hai hệ cơ sở $(a)=\{a_1,a_2,a_3\}$ và $(b)=\{b_1,b_2,b_3\}$ với
+\[
+a_1=(3,1,4),\ a_2=(5,-4,2),\ a_3=(2,1,1),
+\]
+\[
+b_1=(3,-2,3),\ b_2=(4,1,-2),\ b_3=(3,4,2).
+\]
+Hãy tính ma trận chuyển cơ sở từ hệ $(b)$ sang hệ $(a)$.
+
+\newpage
+\section*{CHƯƠNG 4: TRỊ RIÊNG, VÉC TƠ RIÊNG,\\ KHÔNG GIAN RIÊNG, ĐA THỨC ĐẶC TRƯNG CỦA MA TRẬN VUÔNG}
+
+\section*{1/ MỘT SỐ KHÁI NIỆM}
+
+Cho $A$ là ma trận vuông cấp $n$ trên trường số thực $\R$.
+
+Cho số thực $c\in\R$.
+
+Đặt $E_c=\{X\in\R^n \mid (A-cI_n)X=O\}$ không gian nghiệm của hệ pt tuyến tính thuần nhất $(A-cI_n)X=O$.
+
+Ta giải hệ pt tuyến tính thuần nhất $(A-cI_n)X=O$.
+
+Nếu hệ pt này chỉ có 1 bộ nghiệm tầm thường duy nhất là $(0,0,0,\ldots,0)\Rightarrow E_c=\{(0;0;0;\ldots;0)\}$ thì $c$ không là một trị riêng của $A$.
+
+Nếu hệ pt này có vô số nghiệm (bên cạnh bộ nghiệm tầm thường $(0,0,0,\ldots,0)$) thì ta nói $c$ là một trị riêng (eigenvalue) của $A$, và viết $E_c\neq\{(0;0;0;\ldots;0)\}$.
+
+Khi đó, ta gọi $E_c=$ không gian riêng (eigenvector-space), ứng với trị riêng $c$.
+
+Và mỗi véc tơ $\alpha\in E_c$ ta gọi là véc tơ riêng (eigenvector), ứng với trị riêng $c$.
+
+\medskip
+\noindent\underline{Ví dụ mẫu 1}: Cho ma trận thực
+
+\[
+A=\begin{pmatrix}-3 & -1\\ 7 & 5\end{pmatrix}
+\]
+
+a/ Hỏi $c=3$ có phải là 1 trị riêng của $A$ không? Vì sao?
+
+b/ Hỏi $c=-2$ có phải là 1 trị riêng của $A$ không? Vì sao?
+
+c/ Hỏi $c=4$ có phải là 1 trị riêng của $A$ không? Vì sao?
+
+\medskip
+\noindent\underline{Giải}:
+
+Ta có $c$
+
+a/ Với $c=3$ ta có $E_c=\{X\in\R^2 \mid (A-cI_2)X=O\}$
+
+Giải hệ pt $E_3=\{X\in\R^2 \mid (A-3I_2)X=O\}$, tức $(A-3I_2)X=O$
+
+\[
+\left[\begin{pmatrix}-3 & -1\\ 7 & 5\end{pmatrix}-3\begin{pmatrix}1 & 0\\ 0 & 1\end{pmatrix}\ \middle|\ \begin{matrix}0\\0\end{matrix}\right]
+\Leftrightarrow
+\left[\begin{pmatrix}-6 & -1\\ 7 & 2\end{pmatrix}\ \middle|\ \begin{matrix}0\\0\end{matrix}\right]
+\xrightarrow{(2)\to 6(2)+7(1)}
+\begin{bmatrix}-6 & -1\\ 0 & 5\end{bmatrix}\ \big|\ \begin{matrix}0\\0\end{matrix}
+\]
+
+Ta có:
+\[
+\begin{cases}-6x_1-x_2=0\\ 5x_2=0\end{cases}
+\Rightarrow
+\begin{cases}x_1=0\\ x_2=0\end{cases}
+\]
+
+\[
+\Rightarrow E_c=E_3=\{X=(x_1,x_2)=(0,0)\}
+\]
+
+là bộ nghiệm tầm thường nên $c=3$ không phải là trị riêng của $A$.
+
+b/ Với $c=-2$ ta có $E_{-2}=\{X\in\R^2 \mid (A-(-2)I_2)X=O\}$
+
+Giải hệ pt $(A+2I_2)X=O$
+
+\[
+\left[\begin{pmatrix}-3 & -1\\ 7 & 5\end{pmatrix}+2\begin{pmatrix}1 & 0\\ 0 & 1\end{pmatrix}\ \middle|\ \begin{matrix}0\\0\end{matrix}\right]
+\Leftrightarrow
+\left[\begin{pmatrix}-1 & -1\\ 7 & 7\end{pmatrix}\ \middle|\ \begin{matrix}0\\0\end{matrix}\right]
+\xrightarrow{(2)\to(2)+7(1)}
+\begin{bmatrix}-1 & -1\\ 0 & 0\end{bmatrix}\ \big|\ \begin{matrix}0\\0\end{matrix}
+\]
+
+Do cột 2 không bán chuẩn hóa được nên hệ có vô số nghiệm như sau:
+
+Đặt $x_2=t,\ \forall t\in\R$.
+
+Ta có:
+\[
+-x_1-x_2=0\Rightarrow x_1=-x_2=-t
+\]
+\[
+\Rightarrow E_c=E_{-2}=\{X=(x_1,x_2)=(-t,t)\mid t\in\R\}.
+\]
+
+là bộ nghiệm tầm thường nên $c=-2$ là trị riêng của $A$.
+
+c/ Với $c=4$ ta có $E_4=\{X\in\R^2 \mid (A-4I_2)X=O\}$, tức $(A-4I_2)X=O$
+
+\medskip
+\noindent\textit{\underline{Bài tập tương tự}}:
+
+a/ $A=\begin{pmatrix}4 & -2\\ -11 & -5\end{pmatrix}$. Hỏi $c=-5$; $c=-7$ có phải là trị riêng của $A$ không?
+
+b/ $A=\begin{pmatrix}8 & 2\\ -4 & 2\end{pmatrix}$. Hỏi $c=0$; $c=6$ có phải là trị riêng của $A$ không?
+
+c/ $A=\begin{pmatrix}5 & 6 & -3\\ -1 & 0 & 1\\ 1 & 2 & 1\end{pmatrix}$. Hỏi $c=-3$; $c=2$ có phải là trị riêng của $A$ không?
+
+d/ $A=\begin{pmatrix}7 & -6 & -10\\ -12 & 17 & 24\\ 12 & -15 & -22\end{pmatrix}$. Hỏi $c=0$; $c=-1$ có phải là trị riêng của $A$ không?
+
+\newpage
+\section*{2/ ĐA THỨC ĐẶC TRƯNG}
+
+Cho $A$ là ma trận vuông cấp $n$ trên $\R$. Đa thức đặc trưng của ma trận $A$ được định nghĩa:
+\[
+p_A(x)=\det(xI_n-A)
+\]
+hoặc
+\[
+p_A(\lambda)=\det(A-\lambda I_n)
+\]
+
+Số $c$ là trị riêng của $A$ khi và chỉ khi $p_A(c)=0$, tức là $c$ là nghiệm của phương trình đặc trưng $p_A(x)=0$ (hoặc $p_A(\lambda)=0$).
+
+\medskip
+\noindent\underline{Ví dụ mẫu}: Cho ma trận thực $A=\begin{pmatrix}-3 & -1\\ 7 & 5\end{pmatrix}$.
+
+Tìm tất cả các trị riêng của $A$.
+
+\medskip
+\noindent\underline{Giải}:
+
+\[
+p_A(x)=\det(xI_2-A)=\det\left[x\begin{pmatrix}1&0\\0&1\end{pmatrix}-\begin{pmatrix}-3&-1\\7&5\end{pmatrix}\right]
+=\det\begin{pmatrix}x+3 & 1\\ -7 & x-5\end{pmatrix}
+\]
+\[
+=(x+3)(x-5)-1\cdot(-7)=x^2-2x-15+7=x^2-2x-8
+\]
+\[
+p_A(x)=0\Leftrightarrow x^2-2x-8=0\Leftrightarrow (x-4)(x+2)=0\Leftrightarrow
+\begin{bmatrix}x=4\\ x=-2\end{bmatrix}
+\]
+\[
+\Rightarrow \begin{cases}c_1=\lambda_1=4\\ c_2=\lambda_2=-2\end{cases}
+\]
+
+Vậy ma trận $A$ có 2 trị riêng là $4$ và $-2$.
+
+\newpage
+\section*{3/ SỐ MŨ CỦA CÁC TRỊ RIÊNG}
+
+Cho ma trận vuông $A$ cấp $n$ trên $\R$. Giả sử đa thức đặc trưng $p_A(\lambda)=0$ có nghiệm được phân tích thành:
+\[
+x_1=\lambda_1=\ldots,\quad x_2=\lambda_2=\ldots,\quad x_3=\lambda_3=\ldots
+\]
+
+hoặc tổng quát, đa thức đặc trưng $p_A(x)$ (hay $p_A(\lambda)$) được phân tích thành nhân tử:
+\[
+p_A(x)=(x-c_1)^{r_1}(x-c_2)^{r_2}\cdots(x-c_k)^{r_k}
+\]
+\[
+\begin{cases}
+c_1=\lambda_1=\ldots;\ r_1=\ldots\\
+c_2=\lambda_2=\ldots;\ r_2=\ldots\\
+\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\\
+c_k=\lambda_k=\ldots;\ r_k=\ldots
+\end{cases}
+\]
+
+Ví dụ: $p_A(\lambda)=(\lambda-4)^2(\lambda+5)\Rightarrow
+\begin{cases}\lambda_1=4;\ r_1=2\\ \lambda_2=-5;\ r_2=1\end{cases}$
+
+\medskip
+\noindent(Trường hợp đặc biệt $r_1=r_2=\cdots=r_k=1$: mỗi trị riêng có số mũ bằng 1.)
+
+\newpage
+\section*{4/ CHIỀU CỦA KHÔNG GIAN RIÊNG}
+
+Cho ma trận vuông $A$ cấp $n$ trên $\R$; gọi $a_j$ là cơ sở của không gian riêng
+\[
+E_{c_j}=E_{\lambda_j}=\{X\in\R^n \mid (A-c_jI_n)X=O\},\quad 1\le j\le k,\ j\in\{1,2,\ldots,k\}.
+\]
+
+Ta có định lý: $\dim_\R E_{c_j}=\cdots$? Câu trả lời:
+\[
+\dim_\R E_{c_j}<r_j \quad\text{hoặc}\quad \dim_\R E_{c_j}=r_j,
+\]
+với chú ý đặc biệt khi $r_j>1$.
+
+Đặt $a=a_1\cup a_2\cup\cdots\cup a_k$.
+
+\newpage
+\section*{5/ CHÉO HÓA MA TRẬN VUÔNG}
+
+Nếu $a=a_1\cup a_2\cup\cdots\cup a_k$ là một cơ sở của $\R^n$ (tức là $\dim_\R E_{c_j}=r_j$ với mọi $j$), gọi $\beta_0$ là cơ sở chính tắc, đặt
+\[
+P=T=T_{\beta_0\to a}=\cdots
+\]
+
+Lúc này $T$ luôn khả nghịch, nghĩa là luôn có $T^{-1}$ sao cho:
+\[
+D=T^{-1}AT=
+\begin{pmatrix}
+c_1 & & & & &\\
+ & \ddots & & & &\\
+ & & c_1 & & &\\
+ & & & c_2 & &\\
+ & & & & \ddots &\\
+ & & & & & c_k
+\end{pmatrix}
+\]
+
++ Ta gọi đây là dạng chéo hóa cần tìm của $A$.
+
+\medskip
+\noindent\textbf{\textit{* Ứng dụng}}: tìm lũy thừa $A^m$, với mọi $m\ge 0,\ m\in\N$.
+
+Ta có: $T^{-1}AT=\operatorname{diag}(c_1,\ldots,c_1,c_2,\ldots,c_2,\ldots,c_k,\ldots,c_k)\Rightarrow A=T\cdot\operatorname{diag}(c_1,\ldots,c_k)\cdot T^{-1}$.
+
+Nhân vế theo vế $m$ lần ta có:
+\[
+A\cdot A\cdot A\cdots A=T\operatorname{diag}(c_1,\ldots,c_k)T^{-1}\cdot T\operatorname{diag}(c_1,\ldots,c_k)T^{-1}\cdots T\operatorname{diag}(c_1,\ldots,c_k)T^{-1}
+\]
+\[
+\Rightarrow A^m=T\operatorname{diag}(c_1,\ldots,c_k)^m T^{-1}=T\operatorname{diag}((c_1)^m,\ldots,(c_k)^m)T^{-1},\quad \forall m\in\N.
+\]
+
+(Ta phải tìm $T^{-1}$ và thực hiện phép nhân ma trận để tìm $A^m$).
+
+\medskip
+\noindent\underline{Ví dụ mẫu}: Cho ma trận thực $A=\begin{pmatrix}3 & -1 & 0\\ -1 & 2 & -1\\ 0 & -1 & 3\end{pmatrix}$.
+
+Hãy chéo hóa $A$, sau đó tìm $A^m$, $\forall m\in\N$.
+
+\medskip
+\noindent\underline{Giải}:
+
+Ta có đa thức đặc trưng của $A$:
+\[
+p_A(\lambda)=\det(A-\lambda I_3)=\det\left(
+\begin{pmatrix}3 & -1 & 0\\ -1 & 2 & -1\\ 0 & -1 & 3\end{pmatrix}
+-\lambda\begin{pmatrix}1 & 0 & 0\\ 0 & 1 & 0\\ 0 & 0 & 1\end{pmatrix}\right)
+\]
+\[
+=\begin{vmatrix}3-\lambda & -1 & 0\\ -1 & 2-\lambda & -1\\ 0 & -1 & 3-\lambda\end{vmatrix}
+\]
+\[
+=(3-\lambda)^2(2-\lambda)+(-1)(-1)\cdot 0+0\cdot(-1)(-1)-\big[0\cdot(2-\lambda)+(-1)(-1)(3-\lambda)+(3-\lambda)(-1)(-1)\big]
+\]
+\[
+=(3-\lambda)^2(2-\lambda)-(3-\lambda)-(3-\lambda)
+=(3-\lambda)\big[(3-\lambda)(2-\lambda)-2\big]
+=(3-\lambda)\big[6-5\lambda+\lambda^2-2\big]
+\]
+\[
+=(3-\lambda)(\lambda^2-5\lambda+4)=(3-\lambda)(\lambda-1)(\lambda-4)
+\]
+
+Giải pt:
+\[
+p_A(\lambda)=0\Leftrightarrow (3-\lambda)(\lambda-1)(\lambda-4)=0\Leftrightarrow
+\begin{bmatrix}\lambda=3\\ \lambda=1\\ \lambda=4\end{bmatrix}
+\]
+
+Do đó, ta nói $A$ có 3 trị riêng: $\lambda_1=3;\ \lambda_2=1;\ \lambda_3=4$ và có số mũ của các trị riêng là:
+\[
+r_1=1;\ r_2=1;\ r_3=1
+\]
+
+Tiếp theo, ta tìm cơ sở $a_j$ cho các không gian riêng:
+
+$E_{c_j}=E_{\lambda_j}=\{X\in\R^3 \mid (A-\lambda_j I_3)X=O\}$, với $1\le j\le 3$.
+
+\medskip
+Với $\lambda_1=3$, ta có:
+
+$E_{\lambda_1}=E_3=\{X\in\R^3 \mid (A-\lambda_1 I_3)X=O\}$
+
+Ta có dạng ma trận hóa của hệ pt: $(A-\lambda_1I_3)X=O$
+
+\[
+\Leftrightarrow
+\left[\begin{pmatrix}3 & -1 & 0\\ -1 & 2 & -1\\ 0 & -1 & 3\end{pmatrix}-3\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}\ \middle|\ \begin{matrix}0\\0\\0\end{matrix}\right]
+\]
+\[
+\Leftrightarrow
+\begin{bmatrix}0 & -1 & 0\\ -1 & -1 & -1\\ 0 & -1 & 0\end{bmatrix}\big|\begin{matrix}0\\0\\0\end{matrix}
+\xrightarrow{(1)\leftrightarrow(2)}
+\begin{bmatrix}-1 & -1 & -1\\ 0 & -1 & 0\\ 0 & -1 & 0\end{bmatrix}\big|\begin{matrix}0\\0\\0\end{matrix}
+\xrightarrow[(3)\to(3)-(2)]{(1)\to -1(1)}
+\begin{bmatrix}1 & 1 & 1\\ 0 & -1 & 0\\ 0 & 0 & 0\end{bmatrix}\big|\begin{matrix}0\\0\\0\end{matrix}
+\]
+
+Do cột 3 không bán chuẩn hóa được nên hệ có vô số nghiệm như sau:
+
+Đặt $x_3=a,\ \forall a\in\R$.
+
+Ta có:
+\[
+\begin{cases}x_1+x_2+x_3=0\\ -x_2=0\end{cases}
+\Rightarrow
+\begin{cases}x_1=-x_2-x_3=-a\\ x_2=0\end{cases}
+\]
+
+\[
+\Rightarrow E_{\lambda_1}=E_3=\{X=(x_1,x_2,x_3)=(-a,0,a)\mid a\in\R\}=\{X=a(-1,0,1)\mid a\in\R\}
+\]
+
+Đặt $u_1=(-1,0,1)\neq(0,0,0)=O$
+
+$u_1=(-1,0,1)$ là tập sinh của $E_3$.
+
+Ta có: $u_1=(-1,0,1)$ là một véc tơ riêng; và $a_1=S_1=\{u_1\}$ là một cơ sở của $E_3$
+
+và số chiều là $\dim_\R E_{\lambda_1}=1=r_1$ \hfill (1)
+
+\medskip
+Tương tự,
+
+Với $\lambda_2=1$:
+
+$E_{\lambda_2}=E_1=\{X\in\R^3 \mid (A-\lambda_2I_3)X=O\}$
+
+Ta có dạng ma trận hóa của hệ pt tuyến tính: $(A-\lambda_2I_3)X=O$
+
+\[
+\Leftrightarrow
+\left[\begin{pmatrix}3 & -1 & 0\\ -1 & 2 & -1\\ 0 & -1 & 3\end{pmatrix}-1\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}\ \middle|\ \begin{matrix}0\\0\\0\end{matrix}\right]
+\]
+\[
+\Leftrightarrow
+\begin{bmatrix}2 & -1 & 0\\ -1 & 1 & -1\\ 0 & -1 & 2\end{bmatrix}\big|\begin{matrix}0\\0\\0\end{matrix}
+\xrightarrow{(2)\to 2(2)+(1)}
+\begin{bmatrix}2 & -1 & 0\\ 0 & 1 & -2\\ 0 & -1 & 2\end{bmatrix}\big|\begin{matrix}0\\0\\0\end{matrix}
+\xrightarrow{(3)\to(3)+(2)}
+\begin{bmatrix}2 & -1 & 0\\ 0 & 1 & -2\\ 0 & 0 & 0\end{bmatrix}\big|\begin{matrix}0\\0\\0\end{matrix}
+\]
+
+Do cột 3 không bán chuẩn hóa được, nên hệ có vô số nghiệm như sau:
+
+Đặt $x_3=b,\ \forall b\in\R$.
+
+Ta có:
+\[
+\begin{cases}2x_1-x_2=0\\ x_2-2x_3=0\end{cases}
+\Rightarrow
+\begin{cases}x_1=\dfrac{x_2}{2}=b\\ x_2=2b\end{cases}
+\]
+
+\[
+\Rightarrow E_{\lambda_2}=E_1=\{X=(x_1,x_2,x_3)=(b,2b,b)\mid b\in\R\}=\{X=b(1,2,1)\mid b\in\R\}
+\]
+
+Đặt $u_2=(1,2,1)\neq(0,0,0)=O$
+
+$u_2=(1,2,1)$ là hệ sinh của $E_1$
+
+Ta có: $u_2=(1,2,1)$ là một véc tơ riêng; và $a_2=S_2=\{u_2\}$ là một cơ sở của $E_1$,
+
+và số chiều là $\dim_\R E_{\lambda_2}=1=r_2$ \hfill (2)
+
+\medskip
+Với $\lambda_3=4$:
+
+$E_{\lambda_3}=E_4=\{X\in\R^3 \mid (A-\lambda_3I_3)X=O\}$
+
+Ta có dạng ma trận hóa của hệ pt tuyến tính: $(A-\lambda_3I_3)X=O$
+
+\[
+\Leftrightarrow
+\left[\begin{pmatrix}3 & -1 & 0\\ -1 & 2 & -1\\ 0 & -1 & 3\end{pmatrix}-4\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}\ \middle|\ \begin{matrix}0\\0\\0\end{matrix}\right]
+\]
+\[
+\Leftrightarrow
+\begin{bmatrix}-1 & -1 & 0\\ -1 & -2 & -1\\ 0 & -1 & -1\end{bmatrix}\big|\begin{matrix}0\\0\\0\end{matrix}
+\xrightarrow{(2)\to(2)-(1)}
+\begin{bmatrix}-1 & -1 & 0\\ 0 & -1 & -1\\ 0 & -1 & -1\end{bmatrix}\big|\begin{matrix}0\\0\\0\end{matrix}
+\xrightarrow{(3)\to(3)-(2)}
+\begin{bmatrix}-1 & -1 & 0\\ 0 & -1 & -1\\ 0 & 0 & 0\end{bmatrix}\big|\begin{matrix}0\\0\\0\end{matrix}
+\]
+
+Do cột 3 không bán chuẩn hóa được nên hệ có vô số nghiệm như sau:
+
+Đặt $x_3=c,\ \forall c\in\R$
+
+Ta có:
+\[
+\begin{cases}-x_1-x_2=0\\ -x_2-x_3=0\end{cases}
+\Rightarrow
+\begin{cases}x_1=-x_2=c\\ x_2=-c\end{cases}
+\]
+
+\[
+\Rightarrow E_{\lambda_3}=E_4=\{X=(x_1,x_2,x_3)=(c,-c,c)\mid c\in\R\}=\{X=c(1,-1,1)\mid c\in\R\}
+\]
+
+Đặt $u_3=(1,-1,1)\neq(0,0,0)=O$
+
+$u_3=(1,-1,1)$ là hệ sinh của $E_4$.
+
+Ta có: $u_3=(1,-1,1)$ là một véc tơ riêng; và $a_3=S_3=\{u_3\}$ là một cơ sở của $E_4$.
+
+và số chiều là $\dim_\R E_{\lambda_3}=1=r_3$ \hfill (3)
+
+\medskip
+Từ (1), (2), (3) $\Rightarrow A$ có thể chéo hóa được trên $\R$.
+
+Đặt $a=a_1\cup a_2\cup a_3=\{u_1,u_2,u_3\}$ thì $a$ là một cơ sở của $\R^3$.
+
+Gọi $\beta_0=\{e_1=(1,0,0),\ e_2=(0,1,0),\ e_3=(0,0,1)\}$ là một cơ sở chính tắc của $\R^3$.
+
+Đặt $P=T=T_{\beta_0\to a}=\big([u_1]_{\beta_0}\ \ [u_2]_{\beta_0}\ \ [u_3]_{\beta_0}\big)=\begin{pmatrix}-1 & 1 & 1\\ 0 & 2 & -1\\ 1 & 1 & 1\end{pmatrix}$ thì $T$ là ma trận khả nghịch do $\det(T)=-6\neq 0$ và $A=T\begin{pmatrix}3&0&0\\0&1&0\\0&0&4\end{pmatrix}T^{-1}$.
+
+Ta có: $D=T^{-1}AT=\begin{pmatrix}3&0&0\\0&1&0\\0&0&4\end{pmatrix}$. Đây là dạng chéo hóa cần tìm của $A$.
+
+\[
+T^{-1}=\begin{pmatrix}-1/2 & 0 & 1/2\\ 1/6 & 1/3 & 1/6\\ 1/3 & -1/3 & 1/3\end{pmatrix}
+=\frac{1}{6}\begin{pmatrix}-3 & 0 & 3\\ 1 & 2 & 1\\ 2 & -2 & 2\end{pmatrix}
+\]
+
+\[
+\Rightarrow A^m=T\begin{pmatrix}3&0&0\\0&1&0\\0&0&4\end{pmatrix}^{m}T^{-1}
+=T\begin{pmatrix}3^m&0&0\\0&1^m&0\\0&0&4^m\end{pmatrix}T^{-1}
+\]
+\[
+=\frac{1}{6}\begin{pmatrix}-1&1&1\\0&2&-1\\1&1&1\end{pmatrix}
+\begin{pmatrix}3^m&0&0\\0&1^m&0\\0&0&4^m\end{pmatrix}
+\begin{pmatrix}-3&0&3\\1&2&1\\2&-2&2\end{pmatrix}
+\]
+\[
+=\frac{1}{6}\begin{pmatrix}-1\cdot 3^m & 1 & 4^m\\ 0 & 2 & -1\cdot4^m\\ 3^m & 1 & 4^m\end{pmatrix}
+\begin{pmatrix}-3&0&3\\1&2&1\\2&-2&2\end{pmatrix}
+\]
+\[
+=\frac{1}{6}\begin{pmatrix}
+3\cdot3^m+1+2\cdot4^m & 2-2\cdot4^m & -3\cdot3^m+1+2\cdot4^m\\
+2-2\cdot4^m & 4+2\cdot4^m & 2-2\cdot4^m\\
+-3\cdot3^m+1+2\cdot4^m & 2-2\cdot4^m & 3\cdot3^m+1+2\cdot4^m
+\end{pmatrix},\quad \forall m\in\N.
+\]
+
+\medskip
+\noindent\textit{\underline{Bài tập tương tự}}: Yêu cầu như ví dụ mẫu
+
+a/ $A=\begin{pmatrix}-4 & -2\\ -4 & 3\end{pmatrix}$. Hãy chéo hóa $A$ và tìm $A^m,\ \forall m\in\N$.
+
+b/ $A=\begin{pmatrix}-5 & -3\\ -3 & 3\end{pmatrix}$. Hãy chéo hóa $A$ và tìm $A^m,\ \forall m\in\N$.
+
+c/ $A=\begin{pmatrix}1 & 0 & 1\\ 0 & 1 & 0\\ 1 & 0 & 1\end{pmatrix}$. Hãy chéo hóa $A$ và tìm $A^m,\ \forall m\in\N$.
+
+d/ $A=\begin{pmatrix}7 & -6 & -10\\ -12 & 17 & 24\\ 12 & -15 & -22\end{pmatrix}$. Hãy chéo hóa $A$ và tìm $A^m,\ \forall m\in\N$.
+
+e/ $A=\begin{pmatrix}8 & -1 & -5\\ -2 & 3 & 1\\ 4 & -1 & -1\end{pmatrix}$. Hãy chéo hóa $A$ và tìm $A^m,\ \forall m\in\N$.
+
+f/ $A=\begin{pmatrix}5 & 6 & -3\\ -1 & 0 & 1\\ 1 & 2 & 1\end{pmatrix}$. Hãy chéo hóa $A$ và tìm $A^m,\ \forall m\in\N$.
+
+g/ $A=\begin{pmatrix}-1 & 3 & -1\\ -3 & 5 & -1\\ -3 & 3 & 1\end{pmatrix}$. Hãy chéo hóa $A$ và tìm $A^m,\ \forall m\in\N$.
+
+h/ $A=\begin{pmatrix}7 & -12 & -2\\ 3 & -4 & 0\\ -2 & 0 & -2\end{pmatrix}$. Hãy chéo hóa $A$ và tìm $A^m,\ \forall m\in\N$.
+
+i/ $A=\begin{pmatrix}2 & -1 & -1\\ -1 & 2 & -1\\ -1 & -1 & 2\end{pmatrix}$. Hãy chéo hóa $A$ và tìm $A^m,\ \forall m\in\N$.
+
+j/ $A=\begin{pmatrix}3 & 2 & 0\\ 2 & 4 & -2\\ 0 & -2 & 5\end{pmatrix}$. Hãy chéo hóa $A$ và tìm $A^m,\ \forall m\in\N$.
+
+\end{document}

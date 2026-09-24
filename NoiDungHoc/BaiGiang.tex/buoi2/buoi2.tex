@@ -1,0 +1,425 @@
+\documentclass[12pt,a4paper]{article} \usepackage[utf8]{inputenc} \usepackage[T5]{fontenc} \usepackage[vietnamese]{babel} \usepackage{amsmath, amssymb, amsfonts} \usepackage{ulem}
+\usepackage{graphicx} \let\ul\uline
+
+\begin{document}
+
+\ul{Buổi 02 -- Ngày 26-07-2026 -- môn Đại số tuyến tính -- lớp
+MA003.F32.LT.CNTT}
+
+* \textbf{\ul{Các cột bán chuẩn}}
+
+Các cột bán chuẩn cấp $m$ là các cột có $m$ thành phần, như sau:
+
+$$
+E'_1 = \begin{pmatrix} a \\ 0 \\ \vdots \\ 0 \end{pmatrix}, E'_2 = \begin{pmatrix} b \\ c \\ \vdots \\ 0 \end{pmatrix}, \ldots, E'_m = \begin{pmatrix} u_1 \\ u_2 \\ \vdots \\ u_{m-1} \\ u_m \end{pmatrix}
+$$
+
+Trong đó: $a, c, \ldots, u_m$ là những số tùy ý khác 0; còn
+
+$b, u_1, u_2, \ldots, u_{m-1}$ là những số tùy ý.
+
+\ul{Ví dụ} Ta có các cột bán chuẩn cấp 5 sau:
+
+$E'_1 = \begin{pmatrix} -3 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix}$, $E'_2 = \begin{pmatrix} -1 \\ 7 \\ 0 \\ 0 \\ 0 \end{pmatrix}$, $E'_3 = \begin{pmatrix} 8 \\ 0 \\ -5 \\ 0 \\ 0 \end{pmatrix}$, $E'_4 = \begin{pmatrix} 6 \\ -3 \\ 0 \\ -9 \\ 0 \end{pmatrix}$, $E'_5 = \begin{pmatrix} 3 \\ 1 \\ -8 \\ 5 \\ -11 \end{pmatrix}$
+
+\ul{Áp dụng}:
+
+a/ \emph{\ul{Tìm hạng của ma trận}}:
+
+Cho ma trận $A = (a_{ij})_{\substack{1 \le i \le m \\ 1 \le j \le n}}$ trên \emph{F}.
+
+Từ $A$ bán chuẩn hóa (chuẩn hóa) tối đa các cột $H$
+
+Ta gọi ma trận $H$ là ma trận dạng bậc thang (echelon form matrix) của $A$
+
+Ta đặt $rank(A) = r(A) =$số dòng khác zero của $H$
+
+= hạng của ma trận $A$.
+
+\ul{Ví dụ mẫu}: Cho
+$A = \begin{pmatrix} -2 & 1 & 0 & 3 \\ 4 & 5 & -1 & -2 \\ -8 & -10 & 2 & 4 \end{pmatrix}$. Tìm
+$r(A) = ?$
+
+\ul{Giải}: Ta có
+
+\begin{align*}
+A = \begin{pmatrix} -2 & 1 & 0 & 3 \\ 4 & 5 & -1 & -2 \\ -8 & -10 & 2 & 4 \end{pmatrix}  \\
+&\xrightarrow{c_1 \leftrightarrow c_2} \begin{pmatrix} 1 & -2 & 0 & 3 \\ 5 & 4 & -1 & -2 \\ -10 & -8 & 2 & 4 \end{pmatrix} \\
+&\xrightarrow{\substack{c_2 + 2c_1 \to c_2 \\ c_4 - 3c_1 \to c_4} } \begin{pmatrix} 1 & 0 & 0 & 0 \\ 5 & 14 & -1 & -17 \\ -10 & -28 & 2 & 34 \end{pmatrix} \\
+&\xrightarrow{c_2 \leftrightarrow c_3} \begin{pmatrix} 1 & 0 & 0 & 0 \\ 5 & -1 & 14 & -17 \\ -10 & 2 & -28 & 34 \end{pmatrix} \\
+&\xrightarrow{\substack{c_3 + 14c_2 \to c_3 \\ c_4 - 17c_2 \to c_4} } \begin{pmatrix} 1 & 0 & 0 & 0 \\ 5 & -1 & 0 & 0 \\ -10 & 2 & 0 & 0 \end{pmatrix} = H
+\end{align*}
+
+Do $H$ có 2 dòng khác zero nên $rank(A) = r(A) = 2$.
+
+\ul{Bài tập tương tự}:
+
+\ul{Bài 1}: Cho
+$A = \begin{pmatrix} 2 & -1 & 0 & 3 & 5 \\ -2 & 2 & 1 & 0 & 4 \\ 4 & 1 & 3 & -6 & -7 \\ -8 & 0 & 1 & 2 & -4 \end{pmatrix}$. Tìm
+$r(A) = ?$
+
+\ul{Bài 2}: Cho
+$A = \begin{pmatrix} -1 & 2 & 0 & 3 \\ 5 & -8 & 1 & 9 \\ -7 & 6 & -1 & -5 \\ 4 & 0 & 2 & -10 \\ -3 & 1 & 0 & 1 \end{pmatrix}$. Tìm
+$r(A) = ?$
+
+\ul{Bài 3}: Cho
+$A = \begin{pmatrix} 1 & 1 & -3 \\ 2 & 1 & m \\ 1 & m & 3 \end{pmatrix}$. Tìm và biện
+luận hạng của ma trận $A$ theo tham số thực $m$.
+
+\ul{Bài 4}: Cho
+$A = \begin{pmatrix} m & 5m & -m \\ 2m & m & 10m \\ -m & -2m & -3m \end{pmatrix}$. Tìm và biện
+luận hạng của ma trận $A$ theo tham số thực $m$.
+
+\ul{Bài 5}: Cho
+$A = \begin{pmatrix} 3 & 1 & 1 & 4 \\ m & 4 & 10 & 1 \\ 1 & 7 & 17 & 3 \\ 2 & 2 & 4 & 1 \end{pmatrix}$. Tìm và biện
+luận hạng của ma trận $A$ theo tham số thực $m$.
+
+b/ \emph{\textbf{\ul{Giải hệ phương trình tuyến tính bằng phương pháp
+bán chuẩn (pp GAUSS)}}}
+
+Ta giải một hệ pt tuyến tính, dưới dạng ma trận hóa $(A|B)$, gồm $m$ phương trình và $n$ ẩn số, trên \emph{F}, bằng cách bán chuẩn hóa các cột (thay vì phải chuẩn hóa các cột như pp GAUSS-JORDAN), và ta gọi là pp GAUSS.
+
+Quá trình bán chuẩn hóa các cột là hoàn toàn tương tự như trường hợp chuẩn hóa các cột. Tuy nhiên, khi giải hệ bằng pp GAUSS thì bộ nghiệm ta không có được trực tiếp như khi giải bằng pp GAUSS-JORDAN, mà ta sẽ ra các ẩn có chỉ số lớn trước, rồi thay dần vào các pt bên trên, ta sẽ ra các ẩn có chỉ số nhỏ hơn.
+
+Ví dụ ta có $x_5$, rồi tới $x_4$, và thay vào các pt bên trên, ta có $x_3, x_2$ và $x_1$
+
+\ul{Ví dụ}: Giải hệ pt
+$$
+(A|B) \xrightarrow{pp GAUSS} \begin{pmatrix} -1 & 2 & 0 & 3 & -4 & \big| & -5 \\ 0 & 2 & 3 & -2 & 6 & \big| & -12 \\ 0 & 0 & 0 & -3 & 9 & \big| & 18 \\ 0 & 0 & 0 & 0 & -2 & \big| & 4 \end{pmatrix}
+$$
+
+Ta có: $-2x_5 = 4 \Rightarrow x_5 = -2$
+
+$-3x_4 + 9x_5 = 18 \Rightarrow x_4 = -3x_5 - 6 = 3(-2) - 6 = -12$
+
+$x_3 = 2a, \forall a \in \mathbb{R}$ là ẩn tự do (do cột thứ 3 không bán chuẩn hóa được)
+
+$2x_2 + 3x_3 - 2x_4 + 6x_5 = -12 \Rightarrow x_2 = -6 - \frac{3}{2}(2a) - 12 - (-2) = -16 - 3a$
+
+$$
+-x_1 + 2x_2 + 3x_4 - 4x_5 = -5 \Rightarrow x_1 = 5 + 2(-16 - 3a) + 3(-12) - 4(-2) = -55 - 6a
+$$
+
+\ul{Ví dụ mẫu 1}: giải hệ pt tuyến tính sau trên
+$\mathbb{R}$ bằng pp GAUSS
+
+$$
+\begin{pmatrix} -1 & 3 & 2 & 1 & 5 \\ 0 & 2 & 1 & -2 & 4 \\ 0 & 0 & 0 & 5 & -3 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{pmatrix} = \begin{pmatrix} 2 \\ 1 \\ 4 \end{pmatrix}
+$$
+
+\ul{Giải}: Ta có dạng ma trận hóa của hệ như sau:
+
+$$
+\begin{pmatrix} -1 & 3 & 2 & 1 & 5 & \big| & 2 \\ 0 & 2 & 1 & -2 & 4 & \big| & 1 \\ 0 & 0 & 0 & 5 & -3 & \big| & 4 \end{pmatrix}
+$$
+
+Do ma trận kết quả có 3 cột bán chuẩn hóa liên tiếp nhau, nên hệ pt có nghiệm duy nhất là:
+
+$$
+\begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{pmatrix} = \begin{pmatrix} \frac{107}{10} - a - \frac{31}{10}b \\ \frac{13}{10} - \frac{1}{2}a - \frac{13}{10}b \\ a \\ \frac{4}{5} + \frac{3}{5}b \\ b \end{pmatrix}
+$$
+
+\ul{Ví dụ mẫu 2}: Cho ma trận
+$A = \begin{pmatrix} -2 & 1 & 0 & 5 \\ 4 & 3 & 7 & -1 \\ 5 & 0 & -4 & 6 \end{pmatrix}$. Tìm hạng của
+ma trận $A$.
+
+\ul{Giải}:
+
+Ta có
+
+\begin{align*}
+A \\
+&\xrightarrow{c_1 \leftrightarrow c_2} \begin{pmatrix} 1 & -2 & 0 & 5 \\ 3 & 4 & 7 & -1 \\ 0 & 5 & -4 & 6 \end{pmatrix} \\
+&\xrightarrow{\substack{c_2 + 2c_1 \to c_2 \\ c_4 - 5c_1 \to c_4} } \begin{pmatrix} 1 & 0 & 0 & 0 \\ 3 & 10 & 7 & -16 \\ 0 & 5 & -4 & 6 \end{pmatrix} \\
+&\xrightarrow{c_2 \leftrightarrow c_3} \begin{pmatrix} 1 & 0 & 0 & 0 \\ 3 & 7 & 10 & -16 \\ 0 & -4 & 5 & 6 \end{pmatrix} \\
+&\xrightarrow{\substack{c_3 - \frac{10}{7}c_2 \to c_3 \\ c_4 + \frac{16}{7}c_2 \to c_4}} \begin{pmatrix} 1 & 0 & 0 & 0 \\ 3 & 7 & 0 & 0 \\ 0 & -4 & \frac{75}{7} & -\frac{22}{7} \end{pmatrix} \\
+&\xrightarrow{c_3 \leftrightarrow c_4} \begin{pmatrix} 1 & 0 & 0 & 0 \\ 3 & 7 & 0 & 0 \\ 0 & -4 & -\frac{22}{7} & \frac{75}{7} \end{pmatrix} \\
+&\xrightarrow{c_4 + \frac{75} {22}c_3 \to c_4} \begin{pmatrix} 1 & 0 & 0 & 0 \\ 3 & 7 & 0 & 0 \\ 0 & -4 & -\frac{22}{7} & 0 \end{pmatrix} = H
+\end{align*}
+
+Do ma trận kết quả có 3 dòng khác zero, nên hạng của ma trận $A$ là $r(A) = rank(A) = 3$.
+
+\ul{Ví dụ mẫu 3}: Tìm và biện luận hạng của ma trận theo tham số thực
+$m$, với
+
+\begin{align*}
+A = \begin{pmatrix} 1 & 1 & -3 \\ 2 & 1 & m \\ 1 & m & 3 \end{pmatrix}  \\
+&\xrightarrow{c_1 \leftrightarrow c_2} \begin{pmatrix} 1 & 1 & -3 \\ 1 & 2 & m \\ m & 1 & 3 \end{pmatrix} \\
+&\xrightarrow{\substack{c_2 - c_1 \to c_2 \\ c_3 + 3c_1 \to c_3} } \begin{pmatrix} 1 & 0 & 0 \\ 1 & 1 & m+3 \\ m & 1-m & 3+3m \end{pmatrix} \\
+&\xrightarrow{c_3 - (m+3)c_2 \to c_3} \begin{pmatrix} 1 & 0 & 0 \\ 1 & 1 & 0 \\ m & 1-m & (m+3)(m-1) + 3+3m \end{pmatrix}
+\end{align*}
+
+\ul{Giải}: Ta có
+
+\begin{align*}
+= \begin{pmatrix} 1 & 0 & 0 \\ 1 & 1 & 0 \\ m & 1-m & m^2+2m-3+3+3m \end{pmatrix} \\
+&= \begin{pmatrix}1 & 0 & 0 \\ 1 & 1 & 0 \\ m & 1-m & m(m+5) \end{pmatrix} = H
+\end{align*}
+
+TH1: $m = 0 \Rightarrow m - 1 = -1$ và $m + 6 = 6$ nên (*) =
+
+$$
+H_1 = \begin{pmatrix} 1 & 1 & -3 \\ 0 & -1 & 6 \\ 0 & 0 & 0 \end{pmatrix}
+$$
+
+Do ma trận kết quả có 2 dòng khác zero $\Rightarrow r(A) = 2$.
+
+TH2: $m \neq 0 \Rightarrow m - 1 \neq -1$ ta có:
+
+$$
+H_2 = \begin{pmatrix} 1 & 1 & -3 \\ 0 & -1 & m+6 \\ 0 & 0 & m(m+5) \end{pmatrix}
+$$
+TH2.1: $m + 5 = 0 \Leftrightarrow m = -5 \Rightarrow m(m+5) = 0$
+
+Ta có $$
+H_2 = \begin{pmatrix} 1 & 1 & -3 \\ 0 & -1 & 1 \\ 0 & 0 & 0 \end{pmatrix}
+$$. Do ma
+trận kết quả có 2 dòng khác zero $\Rightarrow r(A) = 2$.
+
+TH2.2: $m + 5 \neq 0 \Leftrightarrow m \neq -5 \Rightarrow m(m+5) \neq 0$ (do
+$m \neq 0$)
+
+Ta có $$
+H_2 = \begin{pmatrix} 1 & 1 & -3 \\ 0 & -1 & m+6 \\ 0 & 0 & m(m+5) \end{pmatrix}
+$$. Do ma
+trận kết quả có 3 dòng khác zero $\Rightarrow r(A) = 3$
+
+Kết luận:
+
+Khi $m = 0$ hoặc $m = -5$ thì $r(A) = 2$
+
+Khi $\begin{cases} m \neq 0 \\ m \neq -5 \end{cases}$ thì $r(A) = 3$.
+
+\textbf{5/ CÁC PHÉP TÍNH TRÊN MA TRẬN}
+
+\textbf{a/ \emph{\ul{Phép cộng, trừ 2 ma trận}}}
+
+Cho 2 ma trận có cùng kích thước $A = (a_{ij})_{\substack{1 \le i \le m \\ 1 \le j \le n}}$ và $B = (b_{ij})_{\substack{1 \le i \le m \\ 1 \le j \le n}}$ trên \emph{F}.
+
+Ta có: $A \pm B = (a_{ij} \pm b_{ij})_{\substack{1 \le i \le m \\ 1 \le j \le n}}$
+
+b/ \emph{\textbf{\ul{Phép nhân 1 con số với ma trận}}}:
+
+Cho ma trận $A = (a_{ij})_{\substack{1 \le i \le m \\ 1 \le j \le n}}$, trên \emph{F}, và cho số $c \in F$. Ta có
+
+$c.A = (c.a_{ij})_{\substack{1 \le i \le m \\ 1 \le j \le n}}$
+
+\ul{Ví dụ}: Cho ma trận
+
+$$
+A = \begin{pmatrix} -2 & 3 \\ 1 & 4 \\ 5 & -6 \end{pmatrix}
+$$
+
+và
+
+$$
+B = \begin{pmatrix} 1 & -2 \\ 3 & -1 \\ 4 & 5 \end{pmatrix}
+$$
+
+Tìm:
+
+$$
+2A - 3B = \begin{pmatrix} -7 & 12 \\ -7 & 11 \\ -2 & -27 \end{pmatrix}
+$$
+
+c/ \emph{\textbf{\ul{Phép nhân giữa 1 dòng với 1 cột}}}:
+
+Cho dòng $U = (u_1 \quad u_2 \quad \ldots \quad u_n)$ và cột $V = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}$, ta có
+
+$$
+U.V = (u_1 \quad u_2 \quad \ldots \quad u_n) \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix} = u_1v_1 + u_2v_2 + \ldots + u_nv_n
+$$ /product (phép
+tích)
+
+\ul{Ví dụ}: Cho $U = (-3 \quad 2 \quad 10 \quad 6 \quad -7)$
+và $V = \begin{pmatrix} 2 \\ -5 \\ 8 \\ 6 \\ -1 \end{pmatrix}$ thì
+
+$$
+U.V = (-3).2 + 2.(-5) + 10.8 + 6.6 + (-7).(-1) = 107
+$$
+
+\textbf{d/ \emph{\ul{Phép nhân 2 ma trận}}:}
+
+Cho 2 ma trận $A = (a_{ij})_{\substack{1 \le i \le m \\ 1 \le j \le n}}$ và $B = (b_{jk})_{\substack{1 \le j \le n \\ 1 \le k \le p}}$
+
+(số cột của ma trận đứng trước = $n$ = số dòng của ma trận đứng sau)
+
+Tích của 2 ma trận $A, B$ là ma trận kết quả có được khi ta nhân từng dòng của ma trận $A$ (ma trận đứng trước) với từng cột của ma trận $B$ (ma trận đứng sau). Cụ thể như sau:
+
+Ta xét:
+
+Dòng 1
+
+Dòng 2
+
+Dòng \emph{m}
+
+$A = \begin{pmatrix} A_1 \\ A_2 \\ \vdots \\ A_m \end{pmatrix}$
+
+$B = (B_1 \quad B_2 \quad \ldots \quad B_p)$
+
+Cột 1 Cột 2 Cột \emph{p}
+
+Ta có:
+
+\begin{align*}
+C_{m \times p} &= A_{m \times n}.B_{n \times p} = AB \\
+&= \begin{pmatrix} A_1 \\ A_2 \\ \vdots \\ A_m \end{pmatrix} (B_1 \quad B_2 \quad \ldots \quad B_p) \\
+&= \begin{pmatrix} A_1B_1 & A_1B_2 & \ldots & A_1B_p \\ A_2B_1 & A_2B_2 & \ldots & A_2B_p \\ \vdots & \vdots & \ddots & \vdots \\ A_mB_1 & A_mB_2 & \ldots & A_mB_p \end{pmatrix}
+\end{align*}
+
+Ta gọi $C_{m \times p}$ là ma trận tích của $A$ và $B$ (nghĩa là $C$ là ma trận có $m$ dòng và $p$ cột)
+
+\ul{Lưu ý}: tổng quát thì phép nhân ma trận không có tính chất giao
+hoán, nghĩa là $AB \neq BA$.
+
+* \emph{\textbf{\ul{Tính chất của phép nhân ma trận}}}:
+
+1/ Ta có $(AB)C = A(BC) = ABC$ (tính kết hợp)
+
+2/ $O_m.A_{m \times n} = A_{m \times n}.O_n = O_{m \times n}$
+
+3/ $\begin{cases} I_m.A_{m \times n} = A_{m \times n} \\ A_{m \times n}.I_n = A_{m \times n} \end{cases}$
+
+4/ $\begin{cases} A(B \pm C) = AB \pm AC \\ (B \pm C)D = BD \pm CD \end{cases}$ (tính phân bố)
+
+5/ $(cA)B = c(AB) = A(cB)$, với $c \in F$.
+
+\ul{Ví dụ}:
+
+Cho các ma trận
+
+$$
+A = \begin{pmatrix} -5 & -8 & -1 \\ 3 & -2 & 5 \\ 1 & 4 & -3 \end{pmatrix}, B = \begin{pmatrix} 5 & 6 \\ -1 & -8 \\ 3 & -2 \\ -6 & 1 \end{pmatrix}, C = \begin{pmatrix} 5 & 6 \\ -1 & -8 \\ 3 & -2 \end{pmatrix}
+$$
+
+Tìm các ma trận sau:
+
+$$
+A.C = \begin{pmatrix} -20 & 36 \\ 32 & 24 \\ -8 & -20 \end{pmatrix}
+$$
+
+\ul{Giải}:
+
+Ta có
+
+$$
+A.C = \begin{pmatrix} -5 & -8 & -1 \\ 3 & -2 & 5 \\ 1 & 4 & -3 \end{pmatrix} \begin{pmatrix} 5 & 6 \\ -1 & -8 \\ 3 & -2 \end{pmatrix}
+$$
+
+Nhân ngoài nháp
+
+\begin{center}
+\resizebox{\textwidth}{!}{%
+$\begin{pmatrix}
+5(-5)+(-1)3+3(1)+(-6)(-9) & 5(6)+(-1)(-8)+3(-2)+(-6)2 & 5(-3)+(-1)7+3(5)+(-6)(-3) \\[1ex]
+(-2)(-5)+10(3)+(-4)1+1(-9) & (-2)6+10(-8)+(-4)(-2)+1(2) & (-2)(-3)+10(7)+(-4)5+1(-3) \\[1ex]
+7(-5)+(-8)3+4(1)+(-1)(-9) & 7(6)+(-8)(-8)+4(-2)+(-1)2 & 7(-3)+(-8)7+4(5)+(-1)(-3)
+\end{pmatrix}$%
+}
+\end{center}
+
+\textbf{Lũy thừa của ma trận vuông}
+
+* Xét $A$ là ma
+trận vuông cấp $n$ trên \emph{F}. Ta có lũy thừa nguyên, không âm của $A$ như sau:
+
+$A^0 = I_n$
+
+$A^1 = A$;
+
+$A^2 = A.A$
+
+$A^3 = A^2.A = A.A^2$
+
+\ldots..
+
+$A^k = A^{k-1}.A = A.A^{k-1}$
+
+$k$ lần , $\forall k \ge 0, k$ nguyên.
+
+\ul{Ví dụ}: Cho
+$A = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}$. Tìm
+$A^k, \forall k \ge 0, k \in \mathbb{N}$.
+
+Ta có:
+
+\begin{align*}
+A^0 &= \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \\
+A^1 &= \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} \\
+A^2 &= A.A = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix} \\
+A^3 &= A^2.A = \begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 3 & 1 \end{pmatrix}
+\end{align*}
+
+Dự đoán: $A^k = \begin{pmatrix} 1 & 0 \\ k & 1 \end{pmatrix}$,
+$\forall k \ge 0, k \in \mathbb{N}$ (*)
+
+Ta chứng minh bằng pp quy nạp như sau:
+
+Với $k = 0$ ta có
+$A^0 = I_2 = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$, nghĩa là (*)
+đúng với $k = 0$.
+
+Với $k = 1$ ta có
+$A^1 = A = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}$, nghĩa là (*)
+đúng với $k = 1$.
+
+$k = 2$ ta có
+$A^2 = A.A = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix}$, nghĩa là (*)
+đúng với $k = 2$.
+
+Giả sử (*) đúng với $k = m$, $\forall m \ge 0, m \in \mathbb{N}$, nghĩa là ta
+có: $A^m = \begin{pmatrix} 1 & 0 \\ m & 1 \end{pmatrix}$ là đúng.
+
+Ta cần chứng minh (*) đúng $k = m + 1$, nghĩa là ta
+cần chứng tỏ $A^{m+1} = \begin{pmatrix} 1 & 0 \\ m+1 & 1 \end{pmatrix}$.
+
+Thật vậy, từ $A^m = \begin{pmatrix} 1 & 0 \\ m & 1 \end{pmatrix}$,
+nhân 2 vế pt cho $A$ ta được:
+
+$$
+A^{m+1} = A^m.A = \begin{pmatrix} 1 & 0 \\ m & 1 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ m+1 & 1 \end{pmatrix}
+$$
+
+Như vậy, ta có
+$A^{m+1} = \begin{pmatrix} 1 & 0 \\ m+1 & 1 \end{pmatrix}$, nên theo
+phương pháp quy nạp, ta có
+$A^k = \begin{pmatrix} 1 & 0 \\ k & 1 \end{pmatrix}$,
+$\forall k \ge 0, k \in \mathbb{N}$ đúng (đpcm).
+
+Bài tập tương tự:
+
+Bài 1: Cho $A = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$.
+Tìm $A^2$, $A^3$ và $A^4$.
+
+Bài 2: Cho $A = \begin{pmatrix} 2 & -1 \\ 3 & -2 \end{pmatrix}$.
+Tìm $A^k, \forall k \ge 0, k \in \mathbb{N}$.
+
+Bài 3: Cho $A = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{pmatrix}$.
+Tìm $A^k, \forall k \ge 0, k \in \mathbb{N}$.
+
+Bài 4: Cho $A = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$.
+Tìm $A^k, \forall k \ge 0, k \in \mathbb{N}$.
+
+Bài 5: Cho $A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$.
+Tìm $A^k, \forall k \ge 0, k \in \mathbb{N}$.
+
+Bài 6: Cho $A = \begin{pmatrix} 1 & 0 & 1 \\ 0 & 0 & 1 \\ 1 & 0 & 1 \end{pmatrix}$.
+Tìm $A^k, \forall k \ge 0, k \in \mathbb{N}$.
+
+Bài 7: Cho $A = \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix}$.
+Tìm $A^k, \forall k \ge 0, k \in \mathbb{N}$.
+
+\emph{\textbf{\ul{Lưu ý}}}: $AB = O$ thì ta không được suy ra $A = O$ hay $B = O$.
+
+\ul{Ví dụ}: Cho
+$A = \begin{pmatrix} -1 & -2 \\ 0 & 0 \end{pmatrix} \neq \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} = O$ và cho
+$B = \begin{pmatrix} 0 & 4 \\ 0 & -2 \end{pmatrix} \neq \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} = O$
+
+Ta có $$
+AB = \begin{pmatrix} -1 & -2 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} 0 & 4 \\ 0 & -2 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} = O
+$$.
+
+\textbf{6/ \ul{MA TRẬN VUÔNG KHẢ NGHỊCH}}
+
+\end{document}
